@@ -8,7 +8,7 @@
     body {
       margin: 0;
       height: 100vh;
-      background: #1c1c1c url('pattern.png') repeat; /* dark grey with subtle pattern */
+      background: #1c1c1c url('pattern.png') repeat; /* dark grey with your pattern */
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -19,7 +19,7 @@
       overflow: hidden;
     }
 
-    /* Floating particles for lively background */
+    /* Animated glowing particles */
     .particles {
       position: absolute;
       width: 100%;
@@ -37,7 +37,7 @@
       to { transform: translateY(-20px); }
     }
 
-    /* Logo template */
+    /* Logo with glow */
     .logo {
       width: 200px;
       height: 200px;
@@ -51,7 +51,7 @@
       to { filter: drop-shadow(0 0 25px #FFD700); }
     }
 
-    /* Title */
+    /* Title in neon gold */
     h1 {
       font-size: clamp(4rem, 10vw, 8rem);
       font-weight: 900;
@@ -63,13 +63,13 @@
 
     /* Play button with shake */
     .play-btn {
-      background-color: #FFD700; /* neon gold button */
+      background-color: #FFD700;
       border: none;
       border-radius: 50px;
       padding: clamp(18px, 3vw, 24px) clamp(50px, 8vw, 70px);
       font-size: clamp(1.6rem, 5vw, 2.4rem);
       font-weight: 900;
-      color: #1c1c1c; /* dark grey text to match */
+      color: #1c1c1c; /* dark grey text */
       cursor: pointer;
       box-shadow: 0 0 20px #FFD700, 0 0 40px #FFD700;
       animation: shake 2s infinite;
@@ -109,3 +109,4 @@
   <button class="play-btn" onclick="window.location.href='quiz.html'">PLAY</button>
 </body>
 </html>
+
