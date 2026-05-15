@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bible Knowledge Quiz</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #2e2e2e;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+    h1 { margin-top: 0; }
+    .question-box {
+      background: #444;
+      border-radius: 15px;
+      padding: 20px;
+      margin: 20px auto;
+      width: 90%;
+      max-width: 900px;
+    }
+    .option {
+      display: block;
+      margin: 10px auto;
+      padding: 12px;
+      background: #666;
+      border-radius: 10px;
+      cursor: pointer;
+      width: 70%;
+      max-width: 600px;
+      transition: 0.2s;
+      font-size: 16px;
+    }
+    .option:hover { background: #888; }
+    .feedback {
+      font-size: 20px;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    .wrong { color: #ff3b3b; text-shadow: 0 0 12px #ff3b3b; }
+    .right { color: #7CFC00; text-shadow: 0 0 12px #7CFC00; }
+    #score-box {
+      margin-top: 30px;
+      font-size: 24px;
+      font-weight: bold;
+    }
+    .btn {
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 18px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    .home-btn { background: silver; color: #2e2e2e; }
+    .play-btn { background: #00e676; color: #2e2e2e; }
+    .small-note { font-size: 14px; color: #ccc; margin-top: 6px; }
+  </style>
+</head>
+<body>
+  <h1>Bible Knowledge Quiz</h1>
+  <!-- Home button always visible -->
+  <button class="btn home-btn" onclick="location.href='index.html'">Home</button>
+  
+  <div id="quiz"></div>
+  <div id="score-box"></div>
+
+  <script>
+    // --- Question Pools (100 total) ---
+    // 40 Rare / Hard
+    const rareHard = [
+      {q:"Which prophet married a woman named Gomer as a symbolic act?", options:["Hosea","Amos","Micah","Jonah"], answer:"Hosea"},
+      {q:"Which prophet had a vision of a valley of dry bones?", options:["Ezekiel","Isaiah","Jeremiah","Daniel"], answer:"Ezekiel"},
+      {q:"Which Old Testament book does not mention God by name?", options:["Esther","Ruth","Song of Solomon","Lamentations"], answer:"Esther"},
+      {q:"Who was the prophet that confronted King Ahab over Naboth’s vineyard?", options:["Elijah","Elisha","Nathan","Micaiah"], answer:"Elijah"},
+      {q:"Which prophet wrote about the day of the Lord coming like a thief?", options:["Zephaniah","Joel","Amos","Habakkuk"], answer:"Zephaniah"},
+      {q:"Which prophet saw the Lord seated on a throne with seraphim calling 'Holy'?", options:["Isaiah","Ezekiel","Daniel","Jeremiah"], answer:"Isaiah"},
+      {q:"Which prophet was taken up in a whirlwind into heaven?", options:["Elijah","Elisha","Moses","Enoch"], answer:"Elijah"},
+      {q:"Which Old Testament figure is traditionally credited with writing many Psalms and also was a shepherd?", options:["David","Asaph","Solomon","Moses"], answer:"David"},
+      {q:"Which book contains the vision of the four beasts and the Ancient of Days?", options:["Daniel","Revelation","Ezekiel","Zechariah"], answer:"Daniel"},
+      {q:"Which prophet questioned God about the prosperity of the wicked in the book named after him?", options:["Habakkuk","Haggai","Joel","Obadiah"], answer:"Habakkuk"},
+      {q:"Which king of Judah was known for his reforms and discovery of the Book of the Law?", options:["Josiah","Hezekiah","Uzziah","Manasseh"], answer:"Josiah"},
+      {q:"Which judge of Israel made a foolish vow that led to his daughter being sacrificed?", options:["Jephthah","Gideon","Samson","Ehud"], answer:"Jephthah"},
+      {q:"Which prophet had his mouth shut by God for a time because he refused to prophesy?", options:["Zechariah (son of Jehoiada)","Hosea","Amos","Micah"], answer:"Zechariah (son of Jehoiada)"},
+      {q:"Which Old Testament book is a collection of songs attributed to Solomon?", options:["Song of Solomon","Proverbs","Ecclesiastes","Psalms"], answer:"Song of Solomon"},
+      {q:"Which prophet was commanded to eat a scroll that tasted as honey?", options:["Ezekiel","Jeremiah","Zechariah","Daniel"], answer:"Ezekiel"},
+      {q:"Which king asked for wisdom and was granted it by God in a dream?", options:["Solomon","David","Hezekiah","Rehoboam"], answer:"Solomon"},
+      {q:"Which prophet pronounced 'Thus says the Lord' to call out false prophets and idolatry in Israel?", options:["Jeremiah","Hosea","Joel","Jonah"], answer:"Jeremiah"},
+      {q:"Which Old Testament book is primarily a dialogue between a man and his friends about suffering?", options:["Job","Ecclesiastes","Lamentations","Proverbs"], answer:"Job"},
+      {q:"Which prophet saw a vision of a new temple and measured its dimensions in great detail?", options:["Ezekiel","Isaiah","Zechariah","Haggai"], answer:"Ezekiel"},
+      {q:"Which king of Israel built the temple in Jerusalem?", options:["Solomon","David","Saul","Hezekiah"], answer:"Solomon"},
+      {q:"Which prophet was told to marry a promiscuous woman as a sign to Israel?", options:["Hosea","Amos","Micah","Nahum"], answer:"Hosea"},
+      {q:"Which prophet's book begins with 'The word of the Lord that came to Jonah son of Amittai'?", options:["Jonah","Nahum","Habakkuk","Joel"], answer:"Jonah"},
+      {q:"Which Old Testament figure is described as 'walking with God' and was taken by God, avoiding death?", options:["Enoch","Noah","Abraham","Isaac"], answer:"Enoch"},
+      {q:"Which prophet's message includes the vision of the 'branch' who will build the temple of the Lord?", options:["Zechariah","Haggai","Malachi","Micah"], answer:"Zechariah"},
+      {q:"Which king's heart was hardened and later repented after being delivered from Assyria?", options:["Hezekiah","Manasseh","Josiah","Amon"], answer:"Hezekiah"},
+      {q:"Which prophet used a basket of summer fruit to symbolize Israel's end?", options:["Amos","Hosea","Joel","Obadiah"], answer:"Amos"},
+      {q:"Which prophet was active during the reign of King Uzziah and saw the Lord in the temple?", options:["Isaiah","Micah","Nahum","Zephaniah"], answer:"Isaiah"},
+      {q:"Which Old Testament book contains the line 'Vanity of vanities, all is vanity'?", options:["Ecclesiastes","Proverbs","Job","Psalms"], answer:"Ecclesiastes"},
+      {q:"Which prophet's book contains the vision of the lampstand and two olive trees?", options:["Zechariah","Haggai","Malachi","Joel"], answer:"Zechariah"},
+      {q:"Which prophet denounced social injustice and called for justice to 'roll on like a river'?", options:["Amos","Micah","Isaiah","Jeremiah"], answer:"Amos"},
+      {q:"Which king of Israel was famous for his wealth, wisdom, and building projects besides the temple?", options:["Solomon","David","Ahab","Omri"], answer:"Solomon"},
+      {q:"Which prophet's book is the shortest in the Old Testament by verses?", options:["Obadiah","Nahum","Haggai","Joel"], answer:"Obadiah"},
+      {q:"Which prophet had a vision of a wheel within a wheel and living creatures with many eyes?", options:["Ezekiel","Isaiah","Daniel","Zechariah"], answer:"Ezekiel"},
+      {q:"Which prophet's ministry included a call to 'seek the Lord while he may be found'?", options:["Isaiah","Joel","Hosea","Micah"], answer:"Isaiah"},
+      {q:"Which Old Testament leader's face shone after speaking with God on the mountain?", options:["Moses","Aaron","Joshua","Caleb"], answer:"Moses"},
+      {q:"Which prophet's book includes the famous 'Suffering Servant' passages often linked to the Messiah?", options:["Isaiah","Jeremiah","Ezekiel","Daniel"], answer:"Isaiah"},
+      {q:"Which prophet was commanded to prophesy against the nations and wrote about the 'valley of decision'?", options:["Joel","Amos","Obadiah","Micah"], answer:"Joel"},
+      {q:"Which Old Testament figure wrestled with an angel and had his name changed to Israel?", options:["Jacob","Esau","Joseph","Benjamin"], answer:"Jacob"}
+    ];
+
+    // 40 Technical / Confusing
+    const confusingTech = [
+      {q:"Who was the first king anointed by Samuel in Israel?", options:["Saul","David","Solomon","Rehoboam"], answer:"Saul"},
+      {q:"Which tribe was set apart for priestly duties?", options:["Levi","Judah","Benjamin","Ephraim"], answer:"Levi"},
+      {q:"Who interpreted Nebuchadnezzar's dream of the statue in Babylon?", options:["Daniel","Joseph","Ezekiel","Jeremiah"], answer:"Daniel"},
+      {q:"Which Gospel begins with a genealogy tracing Jesus to Abraham?", options:["Matthew","Mark","Luke","John"], answer:"Matthew"},
+      {q:"Who was chosen to replace Judas Iscariot among the Twelve?", options:["Matthias","Barnabas","Silas","Timothy"], answer:"Matthias"},
+      {q:"Which apostle is known as the 'beloved disciple' in John's Gospel?", options:["John","Peter","James","Andrew"], answer:"John"},
+      {q:"Which council decided Gentile believers did not need to follow all Mosaic laws?", options:["Jerusalem Council","Council of Nicaea","Council of Ephesus","Council of Chalcedon"], answer:"Jerusalem Council"},
+      {q:"Which New Testament letter addresses faith and works using Abraham as an example?", options:["James","Romans","Galatians","Hebrews"], answer:"James"},
+      {q:"Which Old Testament language is most of the Old Testament written in?", options:["Hebrew","Greek","Aramaic","Latin"], answer:"Hebrew"},
+      {q:"Which New Testament book contains the 'armor of God' passage?", options:["Ephesians","Philippians","Colossians","Romans"], answer:"Ephesians"},
+      {q:"Which Gospel records the parable of the Good Samaritan?", options:["Luke","Matthew","Mark","John"], answer:"Luke"},
+      {q:"Which apostle wrote the majority of the New Testament letters?", options:["Paul","Peter","John","James"], answer:"Paul"},
+      {q:"Which Old Testament prophet's book contains the 'valley of dry bones' vision?", options:["Ezekiel","Isaiah","Jeremiah","Daniel"], answer:"Ezekiel"},
+      {q:"Which New Testament book is addressed to 'Theophilus'?", options:["Luke","Acts","John","Matthew"], answer:"Luke"},
+      {q:"Which Old Testament king is associated with the building of the first temple?", options:["Solomon","David","Saul","Hezekiah"], answer:"Solomon"},
+      {q:"Which New Testament epistle emphasizes justification by faith apart from works?", options:["Romans","James","Hebrews","1 John"], answer:"Romans"},
+      {q:"Which language was the New Testament originally written in?", options:["Greek","Hebrew","Latin","Aramaic"], answer:"Greek"},
+      {q:"Which Old Testament book is a collection of wise sayings attributed largely to Solomon?", options:["Proverbs","Ecclesiastes","Job","Psalms"], answer:"Proverbs"},
+      {q:"Which prophet's book contains the 'suffering servant' passages used in Christian theology?", options:["Isaiah","Jeremiah","Ezekiel","Hosea"], answer:"Isaiah"},
+      {q:"Which New Testament event is described as the 'Day of Pentecost' in Acts?", options:["Coming of the Holy Spirit","Ascension of Jesus","Conversion of Paul","Last Supper"], answer:"Coming of the Holy Spirit"},
+      {q:"Which Old Testament law code includes the Ten Commandments?", options:["Exodus","Leviticus","Numbers","Deuteronomy"], answer:"Exodus"},
+      {q:"Which New Testament letter warns about false teachers and 'wolves' among the flock?", options:["Acts","2 Peter","1 John","Jude"], answer:"2 Peter"},
+      {q:"Which Old Testament book records Israel's census and wilderness wanderings?", options:["Numbers","Leviticus","Exodus","Deuteronomy"], answer:"Numbers"},
+      {q:"Which Gospel emphasizes Jesus' miracles and calls Him the 'Son of God' early on?", options:["John","Mark","Matthew","Luke"], answer:"John"},
+      {q:"Which Old Testament prophet was taken to heaven without seeing death according to Scripture?", options:["Enoch","Elijah","Moses","Isaiah"], answer:"Enoch"},
+      {q:"Which New Testament writer was a physician and companion of Paul?", options:["Luke","Mark","John","Matthew"], answer:"Luke"},
+      {q:"Which Old Testament book is primarily a lament over Jerusalem's destruction?", options:["Lamentations","Jeremiah","Ezekiel","Isaiah"], answer:"Lamentations"},
+      {q:"Which New Testament epistle focuses on love as the greatest virtue?", options:["1 Corinthians","1 John","Philippians","Colossians"], answer:"1 Corinthians"},
+      {q:"Which Old Testament judge tore down the temple of Dagon after being captured?", options:["Samson","Gideon","Jephthah","Ehud"], answer:"Samson"},
+      {q:"Which New Testament book contains the 'hall of faith' in chapter 11?", options:["Hebrews","Romans","Galatians","Ephesians"], answer:"Hebrews"},
+      {q:"Which Old Testament king is known for his prayer and deliverance from the Assyrians?", options:["Hezekiah","Josiah","Uzziah","Ahaz"], answer:"Hezekiah"},
+      {q:"Which New Testament letter is addressed to 'the elect lady' and her children?", options:["2 John","3 John","1 John","Jude"], answer:"2 John"},
+      {q:"Which Old Testament prophet's book contains the 'watchmen' vision and call to repentance?", options:["Isaiah","Jeremiah","Ezekiel","Hosea"], answer:"Isaiah"},
+      {q:"Which New Testament book contains Paul's defense before King Agrippa?", options:["Acts","Romans","Galatians","1 Corinthians"], answer:"Acts"},
+      {q:"Which Old Testament book contains the story of Ruth and Boaz?", options:["Ruth","Judges","1 Samuel","Esther"], answer:"Ruth"},
+      {q:"Which New Testament epistle addresses the fruit of the Spirit in chapter 5?", options:["Galatians","Ephesians","Philippians","Colossians"], answer:"Galatians"},
+      {q:"Which Old Testament prophet confronted David about his sin with Bathsheba?", options:["Nathan","Samuel","Gad","Elijah"], answer:"Nathan"},
+      {q:"Which New Testament book contains the 'I am' statements of Jesus?", options:["John","Matthew","Mark","Luke"], answer:"John"},
+      {q:"Which Old Testament figure interpreted Pharaoh's dreams and rose to power in Egypt?", options:["Joseph","Moses","Aaron","Daniel"], answer:"Joseph"},
+      {q:"Which New Testament letter contains the 'armor of God' metaphor in chapter 6?", options:["Ephesians","Romans","1 Thessalonians","Colossians"], answer:"Ephesians"}
+    ];
+
+    // 20 Popular / Simple
+    const popularSimple = [
+      {q:"Who built the ark to survive the flood?", options:["Noah","Moses","Abraham","Jacob"], answer:"Noah"},
+      {q:"Who led the Israelites out of Egypt?", options:["Moses","Joshua","Aaron","Joseph"], answer:"Moses"},
+      {q:"Who killed the giant Goliath?", options:["David","Saul","Jonathan","Samuel"], answer:"David"},
+      {q:"Who was thrown into the lion's den and survived?", options:["Daniel","Shadrach","Meshach","Ezekiel"], answer:"Daniel"},
+      {q:"Who was swallowed by a great fish after fleeing God's command?", options:["Jonah","Peter","Paul","Elijah"], answer:"Jonah"},
+      {q:"What did Jesus turn water into at the wedding in Cana?", options:["Wine","Milk","Oil","Honey"], answer:"Wine"},
+      {q:"Who betrayed Jesus for thirty pieces of silver?", options:["Judas Iscariot","Peter","John","Thomas"], answer:"Judas Iscariot"},
+      {q:"Who is known as the mother of Jesus?", options:["Mary","Elizabeth","Martha","Anna"], answer:"Mary"},
+      {q:"On which day did God rest after creation according to Genesis?", options:["Seventh","Sixth","Fifth","First"], answer:"Seventh"},
+      {q:"What is the first book of the New Testament?", options:["Matthew","Mark","Luke","John"], answer:"Matthew"},
+      {q:"Who was the first man created according to Genesis?", options:["Adam","Noah","Abraham","Moses"], answer:"Adam"},
+      {q:"Who was the first woman created according to Genesis?", options:["Eve","Sarah","Rebekah","Rachel"], answer:"Eve"},
+      {q:"Which city did Jesus grow up in?", options:["Nazareth","Bethlehem","Jerusalem","Capernaum"], answer:"Nazareth"},
+      {q:"Who is known for his wisdom and wrote many proverbs?", options:["Solomon","David","Samuel","Elijah"], answer:"Solomon"},
+      {q:"Which book contains many songs and prayers attributed to David?", options:["Psalms","Proverbs","Ecclesiastes","Song of Solomon"], answer:"Psalms"},
+      {q:"Who led the Israelites into the Promised Land after Moses died?", options:["Joshua","Caleb","Aaron","Gideon"], answer:"Joshua"},
+      {q:"Which apostle denied Jesus three times before the rooster crowed?", options:["Peter","John","James","Andrew"], answer:"Peter"},
+      {q:"What is the shortest verse in the Bible often quoted as 'Jesus wept'?", options:["John 11:35","Luke 2:7","Mark 1:1","Matthew 5:3"], answer:"John 11:35"},
+      {q:"Which river did John the Baptist baptize people in?", options:["Jordan","Nile","Euphrates","Tigris"], answer:"Jordan"},
+      {q:"Who wrote many letters to early churches and is called the Apostle to the Gentiles?", options:["Paul","Peter","John","James"], answer:"Paul"}
+    ];
+
+    // --- Combine pools into one master array ---
+    const allQuestions = [...rareHard, ...confusingTech, ...popularSimple];
+
+    // --- Utility: shuffle array (Fisher-Yates) ---
+    function shuffleArray(array) {
+      let a = array.slice();
+      for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+      }
+      return a;
+    }
+
+    // --- Pick 10 random questions (ensures variety each play) ---
+    function getRandomQuestions() {
+      const shuffled = shuffleArray(allQuestions);
+      return shuffled.slice(0, 10);
+    }
+
+    // --- Quiz state ---
+    let selectedQuestions = getRandomQuestions();
+    let currentIndex = 0;
+    let score = 0;
+    let answered = false;
+
+    // --- Render question ---
+    function showQuestion() {
+      answered = false;
+      if (currentIndex >= selectedQuestions.length) {
+        // Quiz finished
+        document.getElementById("quiz").innerHTML = "";
+        const scoreText = "Quiz Over! You scored " + (score * 10) + " / 100";
+        document.getElementById("score-box").innerHTML =
+          scoreText +
+          "<br><button class='btn home-btn' onclick=\"location.href='index.html'\">Home</button>" +
+          "<br><button class='btn play-btn' onclick=\"location.reload()\">Play Again</button>";
+        return;
+      }
+
+      const qObj = selectedQuestions[currentIndex];
+      let html = `<div class='question-box'>
+                    <h2>Question ${currentIndex + 1} of ${selectedQuestions.length}</h2>
+                    <h3 style="margin-top:6px">${escapeHtml(qObj.q)}</h3>`;
+      // Shuffle options so correct answer isn't always in same position
+      const opts = shuffleArray(qObj.options);
+      opts.forEach(opt => {
+        html += `<div class='option' onclick="checkAnswer('${escapeJs(opt)}')">${escapeHtml(opt)}</div>`;
+      });
+      html += `<div id='feedback' class='feedback'></div></div>`;
+      document.getElementById("quiz").innerHTML = html;
+      document.getElementById("score-box").innerHTML = "<div class='small-note'>Home is available anytime. Finish all 10 questions to see your score.</div>";
+    }
+
+    // --- Escape helpers to safely embed strings in HTML/JS ---
+    function escapeHtml(text) {
+      return text
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+    function escapeJs(text) {
+      return text.replace(/\\/g, "\\\\").replace(/'/g, "\\'");
+    }
+
+    // --- Check answer and show neon feedback ---
+    function checkAnswer(choice) {
+      if (answered) return; // prevent double clicks
+      answered = true;
+      const qObj = selectedQuestions[currentIndex];
+      const feedback = document.getElementById("feedback");
+      if (choice === qObj.answer) {
+        feedback.innerHTML = "<span class='right'>RIGHT ✅</span>";
+        score++;
+      } else {
+        feedback.innerHTML = "<span class='wrong'>WRONG ❌</span>";
+      }
+      currentIndex++;
+      setTimeout(showQuestion, 1400); // proceed after short delay
+    }
+
+    // --- Start quiz ---
+    showQuestion();
+  </script>
+</body>
+</html>
