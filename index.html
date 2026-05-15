@@ -32,12 +32,16 @@
       animation: floatIcons 14s infinite linear;
       z-index: 1; /* behind main content */
     }
-    .icon:nth-child(1) { top: 15%; left: 5%; animation-delay: 0s; }
-    .icon:nth-child(2) { top: 25%; left: 85%; animation-delay: 2s; }
-    .icon:nth-child(3) { top: 65%; left: 20%; animation-delay: 4s; }
-    .icon:nth-child(4) { top: 75%; left: 70%; animation-delay: 6s; }
-    .icon:nth-child(5) { top: 45%; left: 50%; animation-delay: 8s; }
-    .icon:nth-child(6) { top: 85%; left: 40%; animation-delay: 10s; }
+
+    /* Place icons away from title & button */
+    .icon:nth-child(1) { top: 10%; left: 10%; animation-delay: 0s; }
+    .icon:nth-child(2) { top: 15%; left: 80%; animation-delay: 2s; }
+    .icon:nth-child(3) { top: 30%; left: 5%; animation-delay: 4s; }
+    .icon:nth-child(4) { top: 35%; left: 90%; animation-delay: 6s; }
+    .icon:nth-child(5) { top: 70%; left: 10%; animation-delay: 8s; }
+    .icon:nth-child(6) { top: 75%; left: 85%; animation-delay: 10s; }
+    .icon:nth-child(7) { top: 90%; left: 20%; animation-delay: 12s; }
+    .icon:nth-child(8) { top: 95%; left: 70%; animation-delay: 14s; }
 
     @keyframes floatIcons {
       0% { transform: translateY(0) rotate(0deg); }
@@ -125,7 +129,7 @@
   </style>
 </head>
 <body>
-  <!-- Floating glowing quiz icons (stars & trophies only) -->
+  <!-- 8 floating glowing quiz icons (stars & trophies only) -->
   <div class="icon">⭐</div>
   <div class="icon">🏆</div>
   <div class="icon">⭐</div>
@@ -134,11 +138,7 @@
   <div class="icon">🏆</div>
   <div class="icon">⭐</div>
   <div class="icon">🏆</div>
-  <div class="icon">⭐</div>
-  <div class="icon">🏆</div>
-  <div class="icon">⭐</div>
-  <div class="icon">🏆</div>
-  
+
   <div class="logo"></div>
   <h1>Quiz Fest</h1>
   <div class="underline">
@@ -149,4 +149,3 @@
   <button class="play-btn" onclick="window.location.href='quiz.html'">PLAY</button>
 </body>
 </html>
-
