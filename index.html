@@ -8,7 +8,7 @@
     body {
       margin: 0;
       height: 100vh;
-      background: url('background.jpg') center/cover no-repeat;
+      background-color: #1c1c1c; /* dark grey background */
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -28,20 +28,20 @@
     h1 {
       font-size: clamp(3rem, 8vw, 6rem);
       font-weight: 900;
-      color: #39ff14;
-      text-shadow: 0 0 20px #39ff14, 0 0 40px #39ff14, 0 0 60px #39ff14;
+      color: #32cd32; /* slightly dimmer neon green */
+      text-shadow: 0 0 10px #32cd32, 0 0 20px #32cd32, 0 0 30px #32cd32;
       margin-bottom: 40px;
       letter-spacing: 2px;
     }
 
     .play-btn {
-      background-color: #39ff14;
+      background-color: #39ff14; /* neon green button */
       border: none;
       border-radius: 50px;
       padding: clamp(15px, 3vw, 20px) clamp(40px, 8vw, 60px);
-      font-size: clamp(1.2rem, 4vw, 2rem);
-      font-weight: 700;
-      color: #0a0a0a;
+      font-size: clamp(1.4rem, 4vw, 2.2rem);
+      font-weight: 900; /* bolder text */
+      color: #1c1c1c; /* dark grey text to match button */
       cursor: pointer;
       box-shadow: 0 0 20px #39ff14, 0 0 40px #39ff14;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -72,4 +72,5 @@
   <button class="play-btn" onclick="window.location.href='quiz.html'">PLAY</button>
 </body>
 </html>
+
 
