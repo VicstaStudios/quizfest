@@ -17,6 +17,8 @@
       color: #fff;
       text-align: center;
       overflow: hidden;
+      border: 3px solid gold; /* thin rectangular border */
+      box-sizing: border-box;
     }
 
     /* Animated glowing particles */
@@ -37,33 +39,55 @@
       to { transform: translateY(-20px); }
     }
 
-    /* Logo with glow */
+    /* Logo */
     .logo {
       width: 200px;
       height: 200px;
       background: url('quizfest-logo.png') center/contain no-repeat;
       margin-bottom: 30px;
-      animation: glow 2s infinite alternate;
     }
 
-    @keyframes glow {
-      from { filter: drop-shadow(0 0 10px #FFD700); }
-      to { filter: drop-shadow(0 0 25px #FFD700); }
-    }
-
-    /* Title in neon gold */
+    /* Title in ordinary gold */
     h1 {
       font-size: clamp(4rem, 10vw, 8rem);
       font-weight: 900;
-      color: #FFD700; /* neon gold */
-      text-shadow: 0 0 15px #FFD700, 0 0 30px #FFD700, 0 0 45px #FFD700;
-      margin-bottom: 50px;
+      color: gold; /* ordinary gold */
+      text-shadow: 0 0 10px rgba(255,215,0,0.5);
+      margin-bottom: 20px;
       letter-spacing: 3px;
+    }
+
+    /* Double underline */
+    .underline {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    .line1 {
+      width: 60%;
+      height: 6px;
+      background-color: gold;
+      margin: 2px 0;
+    }
+    .line2 {
+      width: 60%;
+      height: 3px;
+      background-color: gold;
+      margin: 2px 0;
+    }
+
+    /* Tagline */
+    .tagline {
+      font-size: clamp(1rem, 3vw, 1.5rem);
+      font-weight: 500;
+      color: #FFD700;
+      margin-bottom: 40px;
     }
 
     /* Play button with shake */
     .play-btn {
-      background-color: #FFD700;
+      background-color: gold;
       border: none;
       border-radius: 50px;
       padding: clamp(18px, 3vw, 24px) clamp(50px, 8vw, 70px);
@@ -71,7 +95,7 @@
       font-weight: 900;
       color: #1c1c1c; /* dark grey text */
       cursor: pointer;
-      box-shadow: 0 0 20px #FFD700, 0 0 40px #FFD700;
+      box-shadow: 0 0 20px gold, 0 0 40px gold;
       animation: shake 2s infinite;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
@@ -85,7 +109,7 @@
     }
 
     .play-btn:hover {
-      box-shadow: 0 0 35px #FFD700, 0 0 70px #FFD700;
+      box-shadow: 0 0 35px gold, 0 0 70px gold;
     }
 
     @media (max-width: 600px) {
@@ -94,7 +118,10 @@
         height: 140px;
       }
       h1 {
-        margin-bottom: 40px;
+        margin-bottom: 15px;
+      }
+      .line1, .line2 {
+        width: 80%;
       }
       .play-btn {
         border-radius: 40px;
@@ -106,7 +133,11 @@
   <div class="particles"></div>
   <div class="logo"></div>
   <h1>Quiz Fest</h1>
+  <div class="underline">
+    <div class="line1"></div>
+    <div class="line2"></div>
+  </div>
+  <div class="tagline">Challenge Your Mind</div>
   <button class="play-btn" onclick="window.location.href='quiz.html'">PLAY</button>
 </body>
 </html>
-
