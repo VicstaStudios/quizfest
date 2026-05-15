@@ -1,1 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Quiz Fest - Home</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background-color: #2e2e2e; /* dark grey */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+    }
+
+    h1 {
+      font-size: 60px;
+      color: silver;
+      text-shadow: 0 0 10px #fff, 0 0 20px silver, 0 0 30px #ccc;
+      animation: sparkle 2s infinite alternate;
+    }
+
+    @keyframes sparkle {
+      from { text-shadow: 0 0 10px #fff, 0 0 20px silver; }
+      to { text-shadow: 0 0 20px #fff, 0 0 40px silver; }
+    }
+
+    .play-button {
+      margin-top: 50px;
+      padding: 15px 40px;
+      font-size: 24px;
+      color: #2e2e2e;
+      background-color: silver;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .play-button:hover {
+      background-color: #ddd;
+    }
+
+    .settings {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 30px;
+      color: silver;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>NAIJA IQ</h1>
+
+  <button class="play-button" onclick="location.href='quiz.html'">PLAY</button>
+
+  <!-- Settings icon (⚙) -->
+  <div class="settings" onclick="location.href='settings.html'">⚙</div>
+</body>
+</html>
 
