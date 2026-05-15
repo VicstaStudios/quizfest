@@ -22,7 +22,7 @@
       position: relative;
     }
 
-    /* Floating glowing quiz icons (only stars & trophies) */
+    /* Floating glowing icons (stars & trophies only) */
     .icon {
       position: absolute;
       font-size: 2rem;
@@ -30,6 +30,7 @@
       opacity: 0.8;
       text-shadow: 0 0 10px gold, 0 0 20px gold, 0 0 30px gold;
       animation: floatIcons 14s infinite linear;
+      z-index: 1; /* behind main content */
     }
     .icon:nth-child(1) { top: 15%; left: 5%; animation-delay: 0s; }
     .icon:nth-child(2) { top: 25%; left: 85%; animation-delay: 2s; }
@@ -125,6 +126,8 @@
 </head>
 <body>
   <!-- Floating glowing quiz icons (stars & trophies only) -->
+  <div class="icon">⭐</div>
+  <div class="icon">🏆</div>
   <div class="icon">⭐</div>
   <div class="icon">🏆</div>
   <div class="icon">⭐</div>
