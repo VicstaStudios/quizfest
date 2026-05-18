@@ -32,6 +32,7 @@
       cursor: pointer;
       transition: transform 0.3s, box-shadow 0.3s;
       padding: 16px;
+      /* height removed so it auto-sizes */
     }
 
     .category:hover {
@@ -47,7 +48,7 @@
     .main-text {
       font-size: 20px;
       font-weight: 700;
-      margin-bottom: 4px; /* reduced spacing */
+      margin-bottom: 4px;
     }
 
     .subtext {
@@ -76,7 +77,6 @@
   </style>
 </head>
 <body>
-  <!-- Categories -->
   <div class="category" onclick="location.href='science-menu.html'">
     <div class="emoji">⚗️</div>
     <div class="main-text">Science</div>
