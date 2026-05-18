@@ -1,1 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bible Knowledge Menu</title>
+  <style>
+    :root {
+      --font-sans: 'Poppins', Arial, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      padding: 20px;
+      background-color: #0F1115;
+      font-family: var(--font-sans);
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      color: #F5F7FA;
+    }
+
+    .category {
+      background-color: #1A1D24;
+      border-radius: 16px;
+      padding: 16px;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .category:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 0 20px rgba(79,140,255,0.7); /* neon blue glow */
+    }
+
+    /* General Bible Knowledge special styling */
+    .general {
+      background: linear-gradient(to bottom right, green, #ccffcc);
+      width: calc(100% - 14px); /* full width minus padding */
+    }
+
+    .emoji {
+      font-size: 28px;
+      margin-bottom: 4px;
+    }
+
+    .main-text {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .subtext {
+      font-size: 14px;
+      font-weight: 600; /* bold tagline */
+      color: #9AA4B2;
+    }
+
+    /* Grid for subject boxes */
+    .subjects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+    }
+
+    @media (max-width: 600px) {
+      .subjects {
+        grid-template-columns: repeat(2, 1fr); /* two per row on mobile */
+      }
+      .main-text { font-size: 18px; }
+      .emoji { font-size: 24px; }
+      .subtext { font-size: 12px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- General Bible Knowledge Quiz -->
+  <div class="category general" onclick="location.href='general-bible.html'">
+    <div class="main-text">General Bible Knowledge Quiz</div>
+    <div class="subtext">Old Testament · New Testament · The Trinity</div>
+  </div>
+
+  <!-- Subject-specific categories -->
+  <div class="subjects">
+    <div class="category" onclick="location.href='old-testament.html'">
+      <div class="emoji">📖</div>
+      <div class="main-text">Old Testament</div>
+      <div class="subtext">Genesis · Prophets · Psalms</div>
+    </div>
+
+    <div class="category" onclick="location.href='new-testament.html'">
+      <div class="emoji">📖</div>
+      <div class="main-text">New Testament</div>
+      <div class="subtext">Gospels · Acts · Epistles</div>
+    </div>
+  </div>
+</body>
+</html>
 
