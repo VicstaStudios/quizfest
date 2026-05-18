@@ -1,78 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Quiz Fest</title>
+  <meta charset="UTF-8">
+  <title>Quiz Fest - Categories</title>
   <style>
+    :root {
+      --font-sans: 'Poppins', Arial, sans-serif;
+    }
+
     body {
       margin: 0;
-      height: 100vh;
-      background: #0F1115 url('pattern.png') repeat;
+      padding: 30px;
+      background-color: #0F1115;
+      font-family: var(--font-sans);
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      justify-items: center;
+      color: #F5F7FA;
+    }
+
+    .category {
+      width: 100%;
+      max-width: 320px;
+      height: 170px;
+      background-color: #1A1D24;
+      color: #F5F7FA;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Poppins', sans-serif;
-      color: #F5F7FA;
-      text-align: center;
-      overflow: hidden;
-      box-sizing: border-box;
-      position: relative;
-    }
-
-    .logo {
-      width: 220px;
-      height: 220px;
-      background: url('quizfest-logo.png') center/contain no-repeat;
-      margin-bottom: 30px;
-    }
-
-    h1 {
-      font-size: clamp(5rem, 12vw, 10rem); /* bigger title */
-      font-weight: 900;
-      color: #0047AB; /* cobalt blue */
-      margin-bottom: 25px;
-      letter-spacing: 4px;
-    }
-
-    .tagline {
-      font-size: clamp(1.2rem, 3vw, 2rem);
-      font-weight: 600;
-      color: #4F8CFF; /* accent blue for harmony */
-      margin-bottom: 50px;
-    }
-
-    .play-btn {
-      background-color: #0047AB; /* cobalt blue */
-      border: none;
-      border-radius: 50px;
-      padding: clamp(20px, 3vw, 28px) clamp(60px, 8vw, 80px);
-      font-size: clamp(1.8rem, 5vw, 2.6rem);
-      font-weight: 900;
-      color: gold; /* gold text */
+      justify-content: space-between;
+      align-items: flex-start;
+      border-radius: 16px;
       cursor: pointer;
-      transition: transform 0.2s ease, box-shadow 0.3s ease;
+      transition: transform 0.3s, box-shadow 0.3s;
+      padding: 16px;
     }
 
-    .play-btn:hover,
-    .play-btn:active {
-      transform: scale(1.08);
-      box-shadow: 0 0 25px rgba(79, 140, 255, 0.6); /* subtle accent glow */
+    .category:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 0 20px rgba(79,140,255,0.6);
     }
 
+    .emoji {
+      font-size: 30px;
+      margin-bottom: 4px;
+    }
+
+    .main-text {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .subtext {
+      font-size: 14px;
+      font-weight: 600; /* bold tagline */
+      color: #9AA4B2;
+      margin-top: auto;
+    }
+
+    /* Mobile: two per row */
     @media (max-width: 600px) {
-      .logo { width: 150px; height: 150px; }
-      h1 { margin-bottom: 20px; font-size: 3.5rem; }
-      .tagline { font-size: 1.2rem; margin-bottom: 30px; }
-      .play-btn { border-radius: 40px; }
+      body {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+      }
+      .category {
+        height: 150px;
+      }
+      .emoji { font-size: 26px; }
+      .main-text { font-size: 18px; }
+      .subtext { font-size: 12px; }
+    }
+
+    /* Larger screens: three per row */
+    @media (min-width: 900px) {
+      body {
+        grid-template-columns: repeat(3, 1fr);
+      }
     }
   </style>
 </head>
 <body>
-  <div class="logo"></div>
-  <h1>Quiz Fest</h1>
-  <div class="tagline">Challenge Your Mind</div>
-  <button class="play-btn" onclick="window.location.href='quiz.html'">PLAY</button>
+  <!-- Categories -->
+  <div class="category" onclick="location.href='science-menu.html'">
+    <div class="emoji">⚗️</div>
+    <div class="main-text">Science</div>
+    <div class="subtext">Physics · Chemistry · Biology</div>
+  </div>
+
+  <div class="category" onclick="location.href='arts-menu.html'">
+    <div class="emoji">🎨</div>
+    <div class="main-text">Arts</div>
+    <div class="subtext">Govt · Lit-in-English · Social</div>
+  </div>
+
+  <div class="category" onclick="location.href='finance-menu.html'">
+    <div class="emoji">📈</div>
+    <div class="main-text">Finance</div>
+    <div class="subtext">Money · Econs · Acct</div>
+  </div>
+
+  <div class="category" onclick="location.href='bible-menu.html'">
+    <div class="emoji">✝️</div>
+    <div class="main-text">Bible Knowledge</div>
+    <div class="subtext">Old Testament · New Testament · Bible</div>
+  </div>
+
+  <div class="category" onclick="location.href='football-menu.html'">
+    <div class="emoji">⚽</div>
+    <div class="main-text">Football</div>
+    <div class="subtext">Clubs · Nations · Legends</div>
+  </div>
+
+  <div class="category" onclick="location.href='celebs-menu.html'">
+    <div class="emoji">🎤</div>
+    <div class="main-text">Celebs</div>
+    <div class="subtext">Naija · TikTok · IG</div>
+  </div>
+
+  <div class="category" onclick="location.href='history-menu.html'">
+    <div class="emoji">📖</div>
+    <div class="main-text">History</div>
+    <div class="subtext">Past · Present</div>
+  </div>
 </body>
 </html>
