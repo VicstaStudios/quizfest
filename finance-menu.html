@@ -1,1 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Finance Menu</title>
+  <style>
+    :root {
+      --font-sans: 'Poppins', Arial, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      padding: 20px;
+      background-color: #0F1115;
+      font-family: var(--font-sans);
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      color: #F5F7FA;
+    }
+
+    .category {
+      background-color: #1A1D24;
+      border-radius: 16px;
+      padding: 16px;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .category:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 0 20px rgba(79,140,255,0.7); /* neon blue glow */
+    }
+
+    /* General Finance Quiz special styling */
+    .general {
+      background: linear-gradient(
+        to bottom right,
+        teal 50%,   /* solid teal until halfway */
+        #ccfff2 100% /* fade to light mint at lower right */
+      );
+      width: calc(100% - 14px); /* full width minus padding */
+    }
+
+    .emoji {
+      font-size: 28px;
+      margin-bottom: 4px;
+    }
+
+    .main-text {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .subtext {
+      font-size: 14px;
+      font-weight: 600;
+      color: rgba(154,164,178,0.7); /* blur-like faded color */
+      filter: blur(0.2px);
+    }
+
+    /* Grid for subject boxes */
+    .subjects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+    }
+
+    @media (max-width: 600px) {
+      .subjects {
+        grid-template-columns: repeat(2, 1fr); /* two per row on mobile */
+      }
+      .main-text { font-size: 18px; }
+      .emoji { font-size: 24px; }
+      .subtext { font-size: 12px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- General Finance Quiz -->
+  <div class="category general" onclick="location.href='finance.html'">
+    <div class="main-text">General Finance Quiz</div>
+    <div class="subtext">Commerce · Marketing · Economics · Accounting</div>
+  </div>
+
+  <!-- Subject-specific categories -->
+  <div class="subjects">
+    <div class="category" onclick="location.href='commerce.html'">
+      <div class="emoji">💼</div>
+      <div class="main-text">Commerce</div>
+      <div class="subtext">Trade · Business · Exchange</div>
+    </div>
+
+    <div class="category" onclick="location.href='marketing.html'">
+      <div class="emoji">📊</div>
+      <div class="main-text">Marketing</div>
+      <div class="subtext">Advertising · Strategy · Sales</div>
+    </div>
+
+    <div class="category" onclick="location.href='economics.html'">
+      <div class="emoji">📈</div>
+      <div class="main-text">Economics</div>
+      <div class="subtext">Micro · Macro · Development</div>
+    </div>
+
+    <div class="category" onclick="location.href='accounting.html'">
+      <div class="emoji">🧾</div>
+      <div class="main-text">Accounting</div>
+      <div class="subtext">Trial Balance · Balance Sheets · Ledger Accounts</div>
+    </div>
+  </div>
+</body>
+</html>
 
