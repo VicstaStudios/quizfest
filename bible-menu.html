@@ -37,7 +37,11 @@
 
     /* General Bible Knowledge special styling */
     .general {
-      background: linear-gradient(to bottom right, green, #ccffcc);
+      background: linear-gradient(
+        to bottom right,
+        green 50%,   /* solid green until halfway */
+        #ccffcc 100% /* fade to light green at lower right */
+      );
       width: calc(100% - 14px); /* full width minus padding */
     }
 
@@ -55,7 +59,7 @@
     .subtext {
       font-size: 14px;
       font-weight: 600; /* bold tagline */
-      color: #9AA4B2;
+      color: #F5F7FA;   /* keep text bright for visibility */
     }
 
     /* Grid for subject boxes */
@@ -98,4 +102,3 @@
   </div>
 </body>
 </html>
-
