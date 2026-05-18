@@ -4,80 +4,97 @@
   <meta charset="UTF-8">
   <title>Quiz Fest - Categories</title>
   <style>
+    :root {
+      --font-sans: 'Poppins', Arial, sans-serif;
+    }
+
     body {
       margin: 0;
-      padding: 20px;
+      padding: 30px;
       background-color: #0F1115;
-      font-family: 'Poppins', Arial, sans-serif;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+      font-family: var(--font-sans);
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 30px;
+      justify-items: center;
       color: #F5F7FA;
     }
 
     .category {
-      position: relative;
-      flex: 1 1 300px; /* responsive width */
+      width: 100%;
       max-width: 400px;
-      height: 180px;
+      height: 200px;
       background-color: #1A1D24;
       color: #F5F7FA;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       border-radius: 20px;
       font-size: 28px;
-      font-weight: 600;
+      font-weight: 700;
       cursor: pointer;
       transition: transform 0.3s, box-shadow 0.3s;
       text-align: center;
+      padding: 20px;
     }
 
     .category:hover {
       transform: translateY(-8px);
-      box-shadow: 0 0 20px rgba(79,140,255,0.6);
+      box-shadow: 0 0 25px rgba(79,140,255,0.6);
     }
 
-    .hot-sticker {
-      position: absolute;
-      top: -12px;
-      right: -12px;
-      background-color: #4F8CFF;
-      color: #F5F7FA;
+    .subtext {
       font-size: 16px;
-      font-weight: bold;
-      padding: 6px 12px;
-      border-radius: 12px;
-      box-shadow: 0 0 10px rgba(79,140,255,0.7);
+      font-weight: 400;
+      color: #9AA4B2;
+      margin-top: 10px;
     }
 
-    /* Mobile adjustments */
     @media (max-width: 600px) {
+      body {
+        grid-template-columns: 1fr;
+      }
       .category {
-        flex: 1 1 100%;
-        max-width: 100%;
-        height: 140px;
+        height: 160px;
         font-size: 22px;
+      }
+      .subtext {
+        font-size: 14px;
       }
     }
   </style>
 </head>
 <body>
   <!-- Categories -->
-  <div class="category" onclick="location.href='science.html'">Science</div>
-  <div class="category" onclick="location.href='arts.html'">Arts</div>
-  <div class="category" onclick="location.href='finance.html'">Finance</div>
-  <div class="category" onclick="location.href='bible.html'">Bible Knowledge</div>
+  <div class="category" onclick="location.href='science.html'">
+    ⚗️ Science
+    <div class="subtext">Physics · Chemistry · Biology</div>
+  </div>
+
+  <div class="category" onclick="location.href='arts.html'">
+    🎨 Arts
+    <div class="subtext">Govt · Lit-in-English · Social</div>
+  </div>
+
+  <div class="category" onclick="location.href='finance.html'">
+    📈 Finance
+    <div class="subtext">Money · Econs · Acct</div>
+  </div>
+
+  <div class="category" onclick="location.href='bible.html'">
+    ✝️ Bible Knowledge
+    <div class="subtext">Old Testament · New Testament · Bible</div>
+  </div>
 
   <div class="category" onclick="location.href='football.html'">
-    Football
-    <div class="hot-sticker">HOT</div>
+    ⚽ Football
+    <div class="subtext">Clubs · Nations · Legends</div>
   </div>
 
   <div class="category" onclick="location.href='celebs.html'">
-    Celebs
-    <div class="hot-sticker">HOT</div>
+    🎤 Celebs
+    <div class="subtext">Naija · TikTok · IG</div>
   </div>
 </body>
 </html>
