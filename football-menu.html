@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>History Menu</title>
+  <title>Football Menu</title>
   <style>
     :root {
       --font-sans: 'Poppins', Arial, sans-serif;
@@ -35,12 +35,12 @@
       box-shadow: 0 0 20px rgba(79,140,255,0.7); /* neon blue glow */
     }
 
-    /* General History Quiz special styling */
+    /* General Football Quiz special styling */
     .general {
       background: linear-gradient(
         to bottom right,
-        #5c4033 50%,   /* solid deep brown until halfway */
-        #f5f5dc 100%   /* fade to light beige at lower right */
+        #003366 50%,   /* solid dark blue until halfway */
+        #99ccff 100%   /* fade to light sky blue at lower right */
       );
       width: calc(100% - 14px);
     }
@@ -70,8 +70,34 @@
       gap: 15px;
     }
 
+    /* Specials heading */
+    .specials-heading {
+      font-size: 16px;
+      font-weight: 700;
+      color: rgba(230,240,255,0.85); /* brighter heading */
+      margin-top: 10px;
+    }
+
+    /* Specials grid */
+    .specials {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+    }
+
+    /* Stronger Specials gradients */
+    .mls {
+      background: linear-gradient(to bottom right, #ff1493 50%, #ffcce6 100%); /* deep pink */
+    }
+    .rsl {
+      background: linear-gradient(to bottom right, #ffd700 50%, #fffacd 100%); /* strong golden yellow */
+    }
+    .superlig {
+      background: linear-gradient(to bottom right, darkred 50%, #ff9999 100%);
+    }
+
     @media (max-width: 600px) {
-      .subjects {
+      .subjects, .specials {
         grid-template-columns: repeat(2, 1fr); /* two per row on mobile */
       }
       .main-text { font-size: 18px; }
@@ -81,30 +107,51 @@
   </style>
 </head>
 <body>
-  <!-- General History Quiz -->
-  <div class="category general" onclick="location.href='history.html'">
-    <div class="main-text">General History Quiz</div>
-    <div class="subtext">Ancient · Medieval · Modern</div>
+  <!-- General Football Quiz -->
+  <div class="category general" onclick="location.href='football.html'">
+    <div class="main-text">General Football Quiz</div>
+    <div class="subtext">Leagues · Nations · Legends</div>
   </div>
 
   <!-- Subject-specific categories -->
   <div class="subjects">
-    <div class="category" onclick="location.href='ancient-history.html'">
-      <div class="emoji">🏺</div>
-      <div class="main-text">Ancient History</div>
-      <div class="subtext">Egypt · Greece · Rome</div>
+    <div class="category" onclick="location.href='leagues.html'">
+      <div class="emoji">🏟️</div>
+      <div class="main-text">Leagues</div>
+      <div class="subtext">EPL · La Liga · Ligue 1</div>
     </div>
 
-    <div class="category" onclick="location.href='medieval-history.html'">
-      <div class="emoji">⚔️</div>
-      <div class="main-text">Medieval History</div>
-      <div class="subtext">Knights · Crusades · Empires</div>
+    <div class="category" onclick="location.href='nations.html'">
+      <div class="emoji">🌐</div>
+      <div class="main-text">Nations</div>
+      <div class="subtext">World Cup · Continental Cup</div>
     </div>
 
-    <div class="category" onclick="location.href='modern-history.html'">
-      <div class="emoji">📜</div>
-      <div class="main-text">Modern History</div>
-      <div class="subtext">Revolutions · Wars · Nations</div>
+    <div class="category" onclick="location.href='legends.html'">
+      <div class="emoji">⭐</div>
+      <div class="main-text">Legends</div>
+      <div class="subtext">Pele · Ronaldo R9 · Maradona</div>
+    </div>
+  </div>
+
+  <!-- Specials heading -->
+  <div class="specials-heading">Specials</div>
+
+  <!-- Specials categories -->
+  <div class="specials">
+    <div class="category mls" onclick="location.href='mls.html'">
+      <div class="main-text">MLS</div>
+      <div class="subtext">L. Messi in Inter Miami</div>
+    </div>
+
+    <div class="category rsl" onclick="location.href='rsl.html'">
+      <div class="main-text">RSL</div>
+      <div class="subtext">C. Ronaldo in Al Nassr</div>
+    </div>
+
+    <div class="category superlig" onclick="location.href='superlig.html'">
+      <div class="main-text">Süper Lig</div>
+      <div class="subtext">V. Osimhen in Galatasaray</div>
     </div>
   </div>
 </body>
