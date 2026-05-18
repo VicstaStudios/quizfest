@@ -14,53 +14,70 @@
       background-color: #0F1115;
       font-family: var(--font-sans);
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
       justify-items: center;
       color: #F5F7FA;
     }
 
     .category {
       width: 100%;
-      max-width: 400px;
-      height: 200px;
+      max-width: 320px;
+      height: 180px;
       background-color: #1A1D24;
       color: #F5F7FA;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
-      border-radius: 20px;
-      font-size: 28px;
-      font-weight: 700;
+      border-radius: 16px;
       cursor: pointer;
       transition: transform 0.3s, box-shadow 0.3s;
+      padding: 18px;
       text-align: center;
-      padding: 20px;
     }
 
     .category:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 0 25px rgba(79,140,255,0.6);
+      transform: translateY(-6px);
+      box-shadow: 0 0 20px rgba(79,140,255,0.6);
+    }
+
+    .emoji {
+      font-size: 32px;
+      margin-bottom: 8px;
+    }
+
+    .main-text {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: auto; /* pushes subtext down */
     }
 
     .subtext {
-      font-size: 16px;
+      font-size: 14px;
       font-weight: 400;
       color: #9AA4B2;
-      margin-top: 10px;
+      margin-top: auto;
     }
 
+    /* Mobile: two per row */
     @media (max-width: 600px) {
       body {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
       }
       .category {
-        height: 160px;
-        font-size: 22px;
+        height: 150px;
       }
-      .subtext {
-        font-size: 14px;
+      .emoji { font-size: 26px; }
+      .main-text { font-size: 18px; }
+      .subtext { font-size: 12px; }
+    }
+
+    /* Larger screens: three per row */
+    @media (min-width: 900px) {
+      body {
+        grid-template-columns: repeat(3, 1fr);
       }
     }
   </style>
@@ -68,32 +85,38 @@
 <body>
   <!-- Categories -->
   <div class="category" onclick="location.href='science.html'">
-    ⚗️ Science
+    <div class="emoji">⚗️</div>
+    <div class="main-text">Science</div>
     <div class="subtext">Physics · Chemistry · Biology</div>
   </div>
 
   <div class="category" onclick="location.href='arts.html'">
-    🎨 Arts
+    <div class="emoji">🎨</div>
+    <div class="main-text">Arts</div>
     <div class="subtext">Govt · Lit-in-English · Social</div>
   </div>
 
   <div class="category" onclick="location.href='finance.html'">
-    📈 Finance
+    <div class="emoji">📈</div>
+    <div class="main-text">Finance</div>
     <div class="subtext">Money · Econs · Acct</div>
   </div>
 
   <div class="category" onclick="location.href='bible.html'">
-    ✝️ Bible Knowledge
+    <div class="emoji">✝️</div>
+    <div class="main-text">Bible Knowledge</div>
     <div class="subtext">Old Testament · New Testament · Bible</div>
   </div>
 
   <div class="category" onclick="location.href='football.html'">
-    ⚽ Football
+    <div class="emoji">⚽</div>
+    <div class="main-text">Football</div>
     <div class="subtext">Clubs · Nations · Legends</div>
   </div>
 
   <div class="category" onclick="location.href='celebs.html'">
-    🎤 Celebs
+    <div class="emoji">🎤</div>
+    <div class="main-text">Celebs</div>
     <div class="subtext">Naija · TikTok · IG</div>
   </div>
 </body>
