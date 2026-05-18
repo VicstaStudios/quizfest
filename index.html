@@ -8,13 +8,13 @@
     body {
       margin: 0;
       height: 100vh;
-      background: #1c1c1c url('pattern.png') repeat;
+      background: #0F1115 url('pattern.png') repeat;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       font-family: 'Poppins', sans-serif;
-      color: #fff;
+      color: #F5F7FA;
       text-align: center;
       overflow: hidden;
       border: 3px solid gold;
@@ -22,66 +22,36 @@
       position: relative;
     }
 
-    /* Floating glowing icons (stars & trophies only) */
-    .icon {
-      position: absolute;
-      font-size: 2rem;
-      color: gold;
-      opacity: 0.8;
-      text-shadow: 0 0 10px gold, 0 0 20px gold, 0 0 30px gold;
-      animation: floatIcons 14s infinite linear;
-      z-index: 1; /* behind main content */
-    }
-
-    /* Place icons away from title & button */
-    .icon:nth-child(1) { top: 10%; left: 10%; animation-delay: 0s; }
-    .icon:nth-child(2) { top: 15%; left: 80%; animation-delay: 2s; }
-    .icon:nth-child(3) { top: 30%; left: 5%; animation-delay: 4s; }
-    .icon:nth-child(4) { top: 35%; left: 90%; animation-delay: 6s; }
-    .icon:nth-child(5) { top: 70%; left: 10%; animation-delay: 8s; }
-    .icon:nth-child(6) { top: 75%; left: 85%; animation-delay: 10s; }
-    .icon:nth-child(7) { top: 90%; left: 20%; animation-delay: 12s; }
-    .icon:nth-child(8) { top: 95%; left: 70%; animation-delay: 14s; }
-
-    @keyframes floatIcons {
-      0% { transform: translateY(0) rotate(0deg); }
-      50% { transform: translateY(-25px) rotate(15deg); }
-      100% { transform: translateY(0) rotate(0deg); }
-    }
-
     .logo {
       width: 200px;
       height: 200px;
       background: url('quizfest-logo.png') center/contain no-repeat;
       margin-bottom: 30px;
-      z-index: 2;
     }
 
     h1 {
       font-size: clamp(4rem, 10vw, 8rem);
       font-weight: 900;
       color: gold;
-      text-shadow: 0 0 10px rgba(255,215,0,0.5);
       margin-bottom: 20px;
       letter-spacing: 3px;
-      z-index: 2;
     }
 
+    /* Double underline */
     .underline {
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin-bottom: 10px;
-      z-index: 2;
+      margin-bottom: 15px;
     }
     .line1 {
-      width: 60%;
+      width: 65%;
       height: 6px;
       background-color: gold;
       margin: 2px 0;
     }
     .line2 {
-      width: 60%;
+      width: 50%;
       height: 3px;
       background-color: gold;
       margin: 2px 0;
@@ -90,9 +60,8 @@
     .tagline {
       font-size: clamp(1rem, 3vw, 1.5rem);
       font-weight: 500;
-      color: gold;
+      color: #9AA4B2; /* secondary text */
       margin-bottom: 40px;
-      z-index: 2;
     }
 
     .play-btn {
@@ -102,44 +71,27 @@
       padding: clamp(18px, 3vw, 24px) clamp(50px, 8vw, 70px);
       font-size: clamp(1.6rem, 5vw, 2.4rem);
       font-weight: 900;
-      color: #1c1c1c;
+      color: #0F1115;
       cursor: pointer;
       box-shadow: 0 0 20px gold, 0 0 40px gold;
-      animation: shake 2s infinite;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      z-index: 2;
+      transition: transform 0.2s ease, box-shadow 0.3s ease;
     }
-    @keyframes shake {
-      0% { transform: translateX(0); }
-      25% { transform: translateX(-5px); }
-      50% { transform: translateX(5px); }
-      75% { transform: translateX(-5px); }
-      100% { transform: translateX(0); }
-    }
-    .play-btn:hover {
-      box-shadow: 0 0 35px gold, 0 0 70px gold;
+
+    .play-btn:hover,
+    .play-btn:active {
+      box-shadow: 0 0 25px #FFD700, 0 0 50px #FFD700, 0 0 75px #FFD700; /* neon gold glow */
+      transform: scale(1.05);
     }
 
     @media (max-width: 600px) {
       .logo { width: 140px; height: 140px; }
-      h1 { margin-bottom: 15px; }
+      h1 { margin-bottom: 15px; font-size: 3rem; }
       .line1, .line2 { width: 80%; }
       .play-btn { border-radius: 40px; }
     }
   </style>
 </head>
 <body>
-  <!-- 8 floating glowing quiz icons (stars & trophies only) -->
-  <div class="icon">⭐</div>
-  <div class="icon">🏆</div>
-  <div class="icon">⭐</div>
-  <div class="icon">🏆</div>
-  <div class="icon">⭐</div>
-  <div class="icon">🏆</div>
-  <div class="icon">⭐</div>
-  <div class="icon">🏆</div>
-  <div class="icon">🏆</div>
-  
   <div class="logo"></div>
   <h1>Quiz Fest</h1>
   <div class="underline">
@@ -150,3 +102,4 @@
   <button class="play-btn" onclick="window.location.href='quiz.html'">PLAY</button>
 </body>
 </html>
+
