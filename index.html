@@ -10,15 +10,18 @@
       height: 100vh;
       background: #0F1115 url('pattern.png') repeat;
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
       font-family: 'Poppins', sans-serif;
       color: #F5F7FA;
       text-align: center;
-      overflow: hidden;
-      box-sizing: border-box;
-      position: relative;
+    }
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transform: translateY(-10%); /* pushes content upward */
     }
 
     .logo {
@@ -29,7 +32,7 @@
     }
 
     h1 {
-      font-size: clamp(5rem, 12vw, 10rem); /* bigger title */
+      font-size: clamp(5rem, 12vw, 10rem);
       font-weight: 900;
       color: #0047AB; /* cobalt blue */
       margin-bottom: 25px;
@@ -39,18 +42,18 @@
     .tagline {
       font-size: clamp(1.2rem, 3vw, 2rem);
       font-weight: 600;
-      color: #4F8CFF; /* accent blue for harmony */
+      color: #4F8CFF;
       margin-bottom: 50px;
     }
 
     .play-btn {
-      background-color: #0047AB; /* cobalt blue */
+      background-color: #0047AB;
       border: none;
       border-radius: 50px;
       padding: clamp(20px, 3vw, 28px) clamp(60px, 8vw, 80px);
       font-size: clamp(1.8rem, 5vw, 2.6rem);
       font-weight: 900;
-      color: gold; /* gold text */
+      color: gold;
       cursor: pointer;
       transition: transform 0.2s ease, box-shadow 0.3s ease;
     }
@@ -58,7 +61,7 @@
     .play-btn:hover,
     .play-btn:active {
       transform: scale(1.08);
-      box-shadow: 0 0 25px rgba(79, 140, 255, 0.6); /* subtle accent glow */
+      box-shadow: 0 0 25px rgba(79, 140, 255, 0.6);
     }
 
     @media (max-width: 600px) {
@@ -70,10 +73,11 @@
   </style>
 </head>
 <body>
-  <div class="logo"></div>
-  <h1>Quiz Fest</h1>
-  <div class="tagline">Challenge Your Mind</div>
-  <button class="play-btn" onclick="window.location.href='quiz.html'">PLAY</button>
+  <div class="content">
+    <div class="logo"></div>
+    <h1>Quiz Fest</h1>
+    <div class="tagline">Challenge Your Mind</div>
+    <button class="play-btn" onclick="window.location.href='quiz.html'">PLAY</button>
+  </div>
 </body>
-  
 </html>
