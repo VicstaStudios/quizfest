@@ -29,8 +29,9 @@
       box-shadow: 0 0 20px rgba(79,140,255,0.7);
     }
 
+    /* General Celebs Quiz gradient */
     .general {
-      background: linear-gradient(to bottom right, purple 50%, violet 100%);
+      background: linear-gradient(to bottom right, purple 50%, yellow 100%);
       width: 100%;
       margin-bottom: 20px;
     }
@@ -45,9 +46,24 @@
       gap: 15px;
     }
 
+    .specials-heading {
+      font-size: 16px;
+      font-weight: 700;
+      color: rgba(230,240,255,0.85);
+      margin-top: 10px;
+    }
+
+    /* Specials gradients */
+    .grammy {
+      background: linear-gradient(to bottom right, #ff8c00 50%, #ffe4b5 100%);
+    }
+    .oscar {
+      background: linear-gradient(to bottom right, #4682b4 50%, #b0e0e6 100%);
+    }
+
     @media (max-width: 600px) {
       .subjects, .specials {
-        grid-template-columns: repeat(2, 1fr); /* two per row on phones */
+        grid-template-columns: repeat(2, 1fr);
       }
       .main-text { font-size: 18px; }
       .subtext { font-size: 12px; }
@@ -61,7 +77,7 @@
     <div class="subtext">Naija Vibes · Hollywood · Social Media · Specials</div>
   </div>
 
-  <!-- Subject-specific categories -->
+  <!-- Subject-specific categories (with emojis) -->
   <div class="subjects">
     <div class="category" onclick="location.href='naija-celebs.html'">
       <div class="emoji">🇳🇬</div>
@@ -83,15 +99,15 @@
   <!-- Specials heading -->
   <div class="specials-heading">Specials</div>
 
-  <!-- Specials categories (no emojis) -->
+  <!-- Specials categories (no emojis, gradients applied) -->
   <div class="specials">
-    <div class="category" onclick="location.href='grammy.html'">
+    <div class="category grammy" onclick="location.href='grammy.html'">
       <div class="main-text">Grammy</div>
       <div class="subtext">Music Awards</div>
     </div>
-    <div class="category" onclick="location.href='oscar.html'">
+    <div class="category oscar" onclick="location.href='oscar.html'">
       <div class="main-text">Oscar</div>
-      <div class="subtext">from stage to the world</div>
+      <div class="subtext">Academy Awards</div>
     </div>
   </div>
 </body>
