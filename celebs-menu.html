@@ -4,18 +4,11 @@
   <meta charset="UTF-8">
   <title>Celebs Menu</title>
   <style>
-    :root {
-      --font-sans: 'Poppins', Arial, sans-serif;
-    }
-
     body {
       margin: 0;
       padding: 20px;
       background-color: #0F1115;
-      font-family: var(--font-sans);
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 20px;
+      font-family: 'Poppins', Arial, sans-serif;
       color: #F5F7FA;
     }
 
@@ -28,124 +21,78 @@
       display: flex;
       flex-direction: column;
       align-items: flex-start;
+      box-sizing: border-box;
     }
 
     .category:hover {
       transform: translateY(-4px);
-      box-shadow: 0 0 20px rgba(79,140,255,0.7); /* neon blue glow */
+      box-shadow: 0 0 20px rgba(79,140,255,0.7);
     }
 
-    /* General Celeb Quiz special styling */
     .general {
-      background: linear-gradient(
-        to bottom right,
-        purple 50%,   /* solid purple until halfway */
-        gold 100%     /* fade to gold at lower right */
-      );
-      width: calc(100% - 14px);
+      background: linear-gradient(to bottom right, purple 50%, violet 100%);
+      width: 100%;
+      margin-bottom: 20px;
     }
 
-    .emoji {
-      font-size: 28px;
-      margin-bottom: 4px;
-    }
+    .emoji { font-size: 28px; margin-bottom: 6px; }
+    .main-text { font-size: 22px; font-weight: 700; margin-bottom: 6px; }
+    .subtext { font-size: 14px; font-weight: 600; color: rgba(230,240,255,0.9); }
 
-    .main-text {
-      font-size: 22px;
-      font-weight: 700;
-      margin-bottom: 6px;
-    }
-
-    .subtext {
-      font-size: 14px;
-      font-weight: 600;
-      color: rgba(230,240,255,0.9); /* brighter bluish-white */
-      filter: blur(0.2px);
-    }
-
-    /* Grid for subject boxes */
-    .subjects {
+    .subjects, .specials {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 15px;
-    }
-
-    /* Specials heading */
-    .specials-heading {
-      font-size: 16px;
-      font-weight: 700;
-      color: rgba(230,240,255,0.9);
-      margin-top: 10px;
-    }
-
-    /* Specials grid */
-    .specials {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 15px;
-    }
-
-    /* Specials gradients */
-    .grammy {
-      background: linear-gradient(to bottom right, royalblue 50%, silver 100%);
-    }
-    .oscar {
-      background: linear-gradient(to bottom right, gold 50%, #fff8dc 100%);
     }
 
     @media (max-width: 600px) {
       .subjects, .specials {
-        grid-template-columns: repeat(2, 1fr); /* two per row on mobile */
+        grid-template-columns: repeat(2, 1fr); /* two per row on phones */
       }
       .main-text { font-size: 18px; }
-      .emoji { font-size: 24px; }
       .subtext { font-size: 12px; }
     }
   </style>
 </head>
 <body>
-  <!-- General Celeb Quiz -->
+  <!-- General Celebs Quiz -->
   <div class="category general" onclick="location.href='celebs.html'">
-    <div class="main-text">General Celeb Quiz</div>
-    <div class="subtext">Naija Vibes · Hollywood · Social Media</div>
+    <div class="main-text">General Celebs Quiz</div>
+    <div class="subtext">Naija Vibes · Hollywood · Social Media · Specials</div>
   </div>
 
   <!-- Subject-specific categories -->
   <div class="subjects">
-    <div class="category" onclick="location.href='naija-vibes.html'">
+    <div class="category" onclick="location.href='naija-celebs.html'">
       <div class="emoji">🇳🇬</div>
       <div class="main-text">Naija Vibes</div>
-      <div class="subtext">Afrobeats · Nollywood · Stars</div>
+      <div class="subtext">Music · Nollywood · Influencers</div>
     </div>
-
-    <div class="category" onclick="location.href='hollywood.html'">
+    <div class="category" onclick="location.href='hollywood-celebs.html'">
       <div class="emoji">🎬</div>
       <div class="main-text">Hollywood</div>
-      <div class="subtext">Movies · Celebrities · Fame</div>
+      <div class="subtext">Movies · Stars · Awards</div>
     </div>
-
-    <div class="category" onclick="location.href='social-media.html'">
+    <div class="category" onclick="location.href='social-celebs.html'">
       <div class="emoji">📱</div>
       <div class="main-text">Social Media</div>
-      <div class="subtext">Influencers · Trends · Platforms</div>
+      <div class="subtext">TikTok · Instagram · YouTube</div>
     </div>
   </div>
 
   <!-- Specials heading -->
   <div class="specials-heading">Specials</div>
 
-  <!-- Specials categories -->
+  <!-- Specials categories (no emojis) -->
   <div class="specials">
-    <div class="category grammy" onclick="location.href='grammy.html'">
+    <div class="category" onclick="location.href='grammy.html'">
       <div class="main-text">Grammy</div>
-      <div class="subtext">Music Industry</div>
+      <div class="subtext">Music Awards</div>
     </div>
-
-    <div class="category oscar" onclick="location.href='oscar.html'">
+    <div class="category" onclick="location.href='oscar.html'">
       <div class="main-text">Oscar</div>
-      <div class="subtext">Own the Spotlight</div>
+      <div class="subtext">from stage to the world</div>
     </div>
   </div>
 </body>
 </html>
-
