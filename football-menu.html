@@ -35,7 +35,6 @@
       margin-bottom: 20px;
     }
 
-    .emoji { font-size: 28px; margin-bottom: 6px; }
     .main-text { font-size: 22px; font-weight: 700; margin-bottom: 6px; }
     .subtext { font-size: 14px; font-weight: 600; color: rgba(230,240,255,0.9); }
 
@@ -45,9 +44,27 @@
       gap: 15px;
     }
 
+    .specials-heading {
+      font-size: 16px;
+      font-weight: 700;
+      color: rgba(230,240,255,0.85);
+      margin-top: 10px;
+    }
+
+    /* Specials gradients */
+    .mls {
+      background: linear-gradient(to bottom right, #ff1493 50%, #ffcce6 100%);
+    }
+    .rsl {
+      background: linear-gradient(to bottom right, #ffd700 50%, #1e90ff 100%);
+    }
+    .superlig {
+      background: linear-gradient(to bottom right, #800000 50%, #ff9999 100%);
+    }
+
     @media (max-width: 600px) {
       .subjects, .specials {
-        grid-template-columns: repeat(2, 1fr); /* two per row on phones */
+        grid-template-columns: repeat(2, 1fr);
       }
       .main-text { font-size: 18px; }
       .subtext { font-size: 12px; }
@@ -64,17 +81,14 @@
   <!-- Subject-specific categories -->
   <div class="subjects">
     <div class="category" onclick="location.href='leagues.html'">
-      <div class="emoji">🏟️</div>
       <div class="main-text">Leagues</div>
       <div class="subtext">EPL · La Liga · Ligue 1</div>
     </div>
     <div class="category" onclick="location.href='nations.html'">
-      <div class="emoji">🌐</div>
       <div class="main-text">Nations</div>
       <div class="subtext">World Cup · Continental Cup</div>
     </div>
     <div class="category" onclick="location.href='legends.html'">
-      <div class="emoji">⭐</div>
       <div class="main-text">Legends</div>
       <div class="subtext">Pele · Ronaldo R9 · Maradona</div>
     </div>
@@ -85,22 +99,18 @@
 
   <!-- Specials categories -->
   <div class="specials">
-    <div class="category" onclick="location.href='mls.html'">
+    <div class="category mls" onclick="location.href='mls.html'">
       <div class="main-text">MLS</div>
       <div class="subtext">L. Messi in Inter Miami</div>
     </div>
-    <div class="category" onclick="location.href='rsl.html'">
+    <div class="category rsl" onclick="location.href='rsl.html'">
       <div class="main-text">RSL</div>
       <div class="subtext">C. Ronaldo in Al Nassr</div>
     </div>
-    <div class="category" onclick="location.href='superlig.html'">
+    <div class="category superlig" onclick="location.href='superlig.html'">
       <div class="main-text">Süper Lig</div>
       <div class="subtext">V. Osimhen in Galatasaray</div>
     </div>
-  </div>
-</body>
-</html>
-
   </div>
 </body>
 </html>
