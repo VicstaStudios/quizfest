@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Bible Knowledge Menu</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bible Menu</title>
   <style>
     :root {
       --font-sans: 'Poppins', Arial, sans-serif;
@@ -13,9 +14,6 @@
       padding: 20px;
       background-color: #0F1115;
       font-family: var(--font-sans);
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 20px;
       color: #F5F7FA;
     }
 
@@ -32,22 +30,24 @@
 
     .category:hover {
       transform: translateY(-4px);
-      box-shadow: 0 0 20px rgba(79,140,255,0.7); /* neon blue glow */
+      box-shadow: 0 0 20px rgba(79,140,255,0.7);
     }
 
-    /* General Bible Knowledge special styling */
+    /* General Bible Quiz styling */
     .general {
       background: linear-gradient(
         to bottom right,
-        green 50%,   /* solid green until halfway */
-        #ccffcc 100% /* fade to light green at lower right */
+        #4B2E83 50%,   /* deep purple */
+        #D8BFD8 100%   /* thistle fade */
       );
-      width: calc(100% - 14px); /* full width minus padding */
+      width: 100%; /* full width */
+      box-sizing: border-box;
+      margin-bottom: 20px;
     }
 
     .emoji {
       font-size: 28px;
-      margin-bottom: 4px;
+      margin-bottom: 6px;
     }
 
     .main-text {
@@ -59,10 +59,9 @@
     .subtext {
       font-size: 14px;
       font-weight: 600;
-      color: rgba(154,164,178,0.7); /* softer, semi-transparent */
-      filter: blur(0.2px);          /* subtle blur effect */
+      color: rgba(230,240,255,0.9);
+      filter: blur(0.2px);
     }
-
 
     /* Grid for subject boxes */
     .subjects {
@@ -71,12 +70,17 @@
       gap: 15px;
     }
 
+    @media (max-width: 900px) {
+      .subjects {
+        grid-template-columns: repeat(2, 1fr); /* two per row on tablets */
+      }
+    }
+
     @media (max-width: 600px) {
       .subjects {
-        grid-template-columns: repeat(2, 1fr); /* two per row on mobile */
+        grid-template-columns: repeat(2, 1fr); /* two per row on phones */
       }
       .main-text { font-size: 18px; }
-      .emoji { font-size: 24px; }
       .subtext { font-size: 12px; }
     }
   </style>
@@ -85,19 +89,19 @@
   <!-- General Bible Knowledge Quiz -->
   <div class="category general" onclick="location.href='bible.html'">
     <div class="main-text">General Bible Knowledge Quiz</div>
-    <div class="subtext">Old Testament · New Testament · The Trinity</div>
+    <div class="subtext">Old Testament · New Testament</div>
   </div>
 
   <!-- Subject-specific categories -->
   <div class="subjects">
     <div class="category" onclick="location.href='old-testament.html'">
-      <div class="emoji">📖</div>
+      <div class="emoji">📜</div>
       <div class="main-text">Old Testament</div>
       <div class="subtext">Genesis · Prophets · Psalms</div>
     </div>
 
     <div class="category" onclick="location.href='new-testament.html'">
-      <div class="emoji">📖</div>
+      <div class="emoji">✝️</div>
       <div class="main-text">New Testament</div>
       <div class="subtext">Gospels · Acts · Epistles</div>
     </div>
