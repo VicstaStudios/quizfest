@@ -2,8 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Celebs Menu</title>
+  <title>History Menu</title>
   <style>
     body {
       margin: 0;
@@ -31,28 +30,14 @@
     }
 
     .general {
-      background: linear-gradient(to bottom right, #800080 50%, #DA70D6 100%);
+      background: linear-gradient(to bottom right, #8B0000 50%, #FFA07A 100%);
       width: 100%;
       margin-bottom: 20px;
     }
 
-    .emoji {
-      font-size: 28px;
-      margin-bottom: 6px;
-    }
-
-    .main-text {
-      font-size: 22px;
-      font-weight: 700;
-      margin-bottom: 6px;
-    }
-
-    .subtext {
-      font-size: 14px;
-      font-weight: 600;
-      color: rgba(230,240,255,0.9);
-      filter: blur(0.2px);
-    }
+    .emoji { font-size: 28px; margin-bottom: 6px; }
+    .main-text { font-size: 22px; font-weight: 700; margin-bottom: 6px; }
+    .subtext { font-size: 14px; font-weight: 600; color: rgba(230,240,255,0.9); }
 
     .subjects {
       display: grid;
@@ -70,36 +55,28 @@
   </style>
 </head>
 <body>
-  <!-- General Celebs Quiz -->
-  <div class="category general" onclick="location.href='celebs.html'">
-    <div class="main-text">General Celebs Quiz</div>
-    <div class="subtext">Naija Vibes · Hollywood · Social Media · Specials</div>
+  <!-- General History Quiz -->
+  <div class="category general" onclick="location.href='history.html'">
+    <div class="main-text">General History Quiz</div>
+    <div class="subtext">Ancient · Medieval · Modern</div>
   </div>
 
-  <!-- Special subsections -->
+  <!-- Subject-specific categories -->
   <div class="subjects">
-    <div class="category" onclick="location.href='naija-celebs.html'">
-      <div class="emoji">🇳🇬</div>
-      <div class="main-text">Naija Vibes</div>
-      <div class="subtext">Music · Nollywood · Influencers</div>
+    <div class="category" onclick="location.href='ancient-history.html'">
+      <div class="emoji">🏺</div>
+      <div class="main-text">Ancient History</div>
+      <div class="subtext">Egypt · Greece · Rome</div>
     </div>
-
-    <div class="category" onclick="location.href='hollywood-celebs.html'">
-      <div class="emoji">🎬</div>
-      <div class="main-text">Hollywood</div>
-      <div class="subtext">Movies · Stars · Awards</div>
+    <div class="category" onclick="location.href='medieval-history.html'">
+      <div class="emoji">⚔️</div>
+      <div class="main-text">Medieval History</div>
+      <div class="subtext">Knights · Castles · Crusades</div>
     </div>
-
-    <div class="category" onclick="location.href='social-celebs.html'">
-      <div class="emoji">📱</div>
-      <div class="main-text">Social Media</div>
-      <div class="subtext">TikTok · Instagram · YouTube</div>
-    </div>
-
-    <div class="category" onclick="location.href='celebs-specials.html'">
-      <div class="emoji">🌟</div>
-      <div class="main-text">Specials</div>
-      <div class="subtext">Grammy · Oscar · Global Icons</div>
+    <div class="category" onclick="location.href='modern-history.html'">
+      <div class="emoji">🌍</div>
+      <div class="main-text">Modern History</div>
+      <div class="subtext">Revolutions · World Wars · Globalization</div>
     </div>
   </div>
 </body>
