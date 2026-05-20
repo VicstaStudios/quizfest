@@ -29,6 +29,7 @@
       box-shadow: 0 0 20px rgba(79,140,255,0.7);
     }
 
+    /* General Football Quiz gradient */
     .general {
       background: linear-gradient(to bottom right, #003366 50%, #99ccff 100%);
       width: 100%;
@@ -78,17 +79,20 @@
     <div class="subtext">Leagues · Nations · Legends</div>
   </div>
 
-  <!-- Subject-specific categories -->
+  <!-- Subject-specific categories (with emojis) -->
   <div class="subjects">
     <div class="category" onclick="location.href='leagues.html'">
+      <div class="emoji">🏟️</div>
       <div class="main-text">Leagues</div>
       <div class="subtext">EPL · La Liga · Ligue 1</div>
     </div>
     <div class="category" onclick="location.href='nations.html'">
+      <div class="emoji">🌐</div>
       <div class="main-text">Nations</div>
       <div class="subtext">World Cup · Continental Cup</div>
     </div>
     <div class="category" onclick="location.href='legends.html'">
+      <div class="emoji">⭐</div>
       <div class="main-text">Legends</div>
       <div class="subtext">Pele · Ronaldo R9 · Maradona</div>
     </div>
@@ -97,7 +101,7 @@
   <!-- Specials heading -->
   <div class="specials-heading">Specials</div>
 
-  <!-- Specials categories -->
+  <!-- Specials categories (no emojis, gradients applied) -->
   <div class="specials">
     <div class="category mls" onclick="location.href='mls.html'">
       <div class="main-text">MLS</div>
