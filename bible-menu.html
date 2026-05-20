@@ -5,15 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bible Menu</title>
   <style>
-    :root {
-      --font-sans: 'Poppins', Arial, sans-serif;
-    }
-
     body {
       margin: 0;
       padding: 20px;
       background-color: #0F1115;
-      font-family: var(--font-sans);
+      font-family: 'Poppins', Arial, sans-serif;
       color: #F5F7FA;
     }
 
@@ -26,6 +22,7 @@
       display: flex;
       flex-direction: column;
       align-items: flex-start;
+      box-sizing: border-box;
     }
 
     .category:hover {
@@ -35,13 +32,8 @@
 
     /* General Bible Quiz styling */
     .general {
-      background: linear-gradient(
-        to bottom right,
-        #006400 50%,   /* dark green */
-        #90EE90 100%   /* light green fade */
-      );
-      width: 100%; /* full width */
-      box-sizing: border-box;
+      background: linear-gradient(to bottom right, #006400 50%, #90EE90 100%);
+      width: 100%; /* fits mobile width perfectly */
       margin-bottom: 20px;
     }
 
@@ -68,12 +60,6 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 15px;
-    }
-
-    @media (max-width: 900px) {
-      .subjects {
-        grid-template-columns: repeat(2, 1fr); /* two per row on tablets */
-      }
     }
 
     @media (max-width: 600px) {
