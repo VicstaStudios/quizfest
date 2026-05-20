@@ -8,7 +8,7 @@
     body {
       margin: 0;
       height: 100vh;
-      background: #0F1115 url('pattern.png') repeat;
+      background: #0F1115;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -21,29 +21,31 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      transform: translateY(-10%); /* pushes content upward */
+      transform: translateY(-15%); /* lifts everything above mid-line */
+      opacity: 0;
+      animation: fadeIn 1.2s ease forwards; /* fade-in animation */
     }
 
-    .logo {
-      width: 220px;
-      height: 220px;
-      background: url('quizfest-logo.png') center/contain no-repeat;
-      margin-bottom: 30px;
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20%); }
+      to { opacity: 1; transform: translateY(-15%); }
     }
 
     h1 {
       font-size: clamp(5rem, 12vw, 10rem);
       font-weight: 900;
-      color: #0047AB; /* cobalt blue */
-      margin-bottom: 25px;
+      color: #0047AB;
+      margin-bottom: 10px; /* tighter spacing */
       letter-spacing: 4px;
+      animation: fadeIn 1.5s ease forwards;
     }
 
     .tagline {
       font-size: clamp(1.2rem, 3vw, 2rem);
       font-weight: 600;
       color: #4F8CFF;
-      margin-bottom: 50px;
+      margin-bottom: 40px; /* lifted closer to title */
+      animation: fadeIn 1.8s ease forwards;
     }
 
     .play-btn {
@@ -56,25 +58,23 @@
       color: gold;
       cursor: pointer;
       transition: transform 0.2s ease, box-shadow 0.3s ease;
+      animation: fadeIn 2s ease forwards;
     }
 
     .play-btn:hover,
     .play-btn:active {
       transform: scale(1.08);
-      box-shadow: 0 0 25px rgba(79, 140, 255, 0.6);
+      box-shadow: 0 0 25px rgba(79,140,255,0.6);
     }
 
     @media (max-width: 600px) {
-      .logo { width: 150px; height: 150px; }
-      h1 { margin-bottom: 20px; font-size: 3.5rem; }
-      .tagline { font-size: 1.2rem; margin-bottom: 30px; }
-      .play-btn { border-radius: 40px; }
+      h1 { font-size: 3.5rem; margin-bottom: 8px; }
+      .tagline { font-size: 1.2rem; margin-bottom: 25px; }
     }
   </style>
 </head>
 <body>
   <div class="content">
-    <div class="logo"></div>
     <h1>Quiz Fest</h1>
     <div class="tagline">Challenge Your Mind</div>
     <button class="play-btn" onclick="window.location.href='quiz.html'">PLAY</button>
