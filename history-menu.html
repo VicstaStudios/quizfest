@@ -2,20 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>History Menu</title>
   <style>
-    :root {
-      --font-sans: 'Poppins', Arial, sans-serif;
-    }
-
     body {
       margin: 0;
       padding: 20px;
       background-color: #0F1115;
-      font-family: var(--font-sans);
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 20px;
+      font-family: 'Poppins', Arial, sans-serif;
       color: #F5F7FA;
     }
 
@@ -28,26 +22,24 @@
       display: flex;
       flex-direction: column;
       align-items: flex-start;
+      box-sizing: border-box;
     }
 
     .category:hover {
       transform: translateY(-4px);
-      box-shadow: 0 0 20px rgba(79,140,255,0.7); /* neon blue glow */
+      box-shadow: 0 0 20px rgba(79,140,255,0.7);
     }
 
-    /* General History Quiz special styling */
+    /* General History Quiz styling */
     .general {
-      background: linear-gradient(
-        to bottom right,
-        #5c4033 50%,   /* solid deep brown until halfway */
-        #f5f5dc 100%   /* fade to light beige at lower right */
-      );
-      width: calc(100% - 14px);
+      background: linear-gradient(to bottom right, #8B0000 50%, #FFA07A 100%);
+      width: 100%; /* fits mobile width perfectly */
+      margin-bottom: 20px;
     }
 
     .emoji {
       font-size: 28px;
-      margin-bottom: 4px;
+      margin-bottom: 6px;
     }
 
     .main-text {
@@ -59,7 +51,7 @@
     .subtext {
       font-size: 14px;
       font-weight: 600;
-      color: rgba(230,240,255,0.85); /* brighter bluish-white */
+      color: rgba(230,240,255,0.9);
       filter: blur(0.2px);
     }
 
@@ -72,10 +64,9 @@
 
     @media (max-width: 600px) {
       .subjects {
-        grid-template-columns: repeat(2, 1fr); /* two per row on mobile */
+        grid-template-columns: repeat(2, 1fr); /* two per row on phones */
       }
       .main-text { font-size: 18px; }
-      .emoji { font-size: 24px; }
       .subtext { font-size: 12px; }
     }
   </style>
@@ -98,15 +89,14 @@
     <div class="category" onclick="location.href='medieval-history.html'">
       <div class="emoji">⚔️</div>
       <div class="main-text">Medieval History</div>
-      <div class="subtext">Knights · Crusades · Empires</div>
+      <div class="subtext">Knights · Castles · Crusades</div>
     </div>
 
     <div class="category" onclick="location.href='modern-history.html'">
-      <div class="emoji">📜</div>
+      <div class="emoji">🌍</div>
       <div class="main-text">Modern History</div>
-      <div class="subtext">Revolutions · Wars · Nations</div>
+      <div class="subtext">Revolutions · World Wars · Globalization</div>
     </div>
   </div>
 </body>
 </html>
-
