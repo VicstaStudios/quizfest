@@ -2,26 +2,34 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Football Menu</title>
+
   <style>
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       padding: 20px;
       background-color: #0F1115;
       font-family: 'Poppins', Arial, sans-serif;
       color: #F5F7FA;
+      overflow-x: hidden;
     }
 
     .category {
       background-color: #1A1D24;
       border-radius: 16px;
-      padding: 16px;
+      padding: 18px;
       cursor: pointer;
       transition: transform 0.3s, box-shadow 0.3s;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      box-sizing: border-box;
+      width: 100%;
     }
 
     .category:hover {
@@ -36,85 +44,149 @@
       margin-bottom: 20px;
     }
 
-    .main-text { font-size: 22px; font-weight: 700; margin-bottom: 6px; }
-    .subtext { font-size: 14px; font-weight: 600; color: rgba(230,240,255,0.9); }
+    .emoji {
+      font-size: 28px;
+      margin-bottom: 6px;
+    }
 
-    .subjects, .specials {
+    .main-text {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      line-height: 1.3;
+    }
+
+    .subtext {
+      font-size: 14px;
+      font-weight: 600;
+      color: rgba(230,240,255,0.9);
+      line-height: 1.5;
+    }
+
+    .subjects,
+    .specials {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 15px;
+      width: 100%;
     }
 
     .specials-heading {
       font-size: 16px;
       font-weight: 700;
       color: rgba(230,240,255,0.85);
-      margin-top: 10px;
+      margin-top: 18px;
+      margin-bottom: 12px;
     }
 
     /* Specials gradients */
     .mls {
       background: linear-gradient(to bottom right, #ff1493 50%, #ffcce6 100%);
     }
+
     .rsl {
       background: linear-gradient(to bottom right, #ffd700 50%, #1e90ff 100%);
     }
+
     .superlig {
       background: linear-gradient(to bottom right, #800000 50%, #ff9999 100%);
     }
 
+    /* =========================
+       MOBILE OPTIMIZATION
+    ========================= */
     @media (max-width: 600px) {
-      .subjects, .specials {
-        grid-template-columns: repeat(2, 1fr);
+
+      body {
+        padding: 15px;
       }
-      .main-text { font-size: 18px; }
-      .subtext { font-size: 12px; }
+
+      .subjects,
+      .specials {
+        grid-template-columns: 1fr;
+      }
+
+      .category {
+        padding: 16px;
+        border-radius: 14px;
+      }
+
+      .main-text {
+        font-size: 18px;
+      }
+
+      .subtext {
+        font-size: 12px;
+        line-height: 1.4;
+      }
+
+      .emoji {
+        font-size: 24px;
+      }
+
+      .specials-heading {
+        font-size: 15px;
+        margin-top: 16px;
+      }
+
     }
+
   </style>
 </head>
+
 <body>
+
   <!-- General Football Quiz -->
   <div class="category general" onclick="location.href='football.html'">
     <div class="main-text">General Football Quiz</div>
     <div class="subtext">Leagues · Nations · Legends</div>
   </div>
 
-  <!-- Subject-specific categories (with emojis) -->
+  <!-- Subject-specific categories -->
   <div class="subjects">
+
     <div class="category" onclick="location.href='leagues.html'">
       <div class="emoji">🏟️</div>
       <div class="main-text">Leagues</div>
       <div class="subtext">EPL · La Liga · Ligue 1</div>
     </div>
+
     <div class="category" onclick="location.href='nations.html'">
       <div class="emoji">🌐</div>
       <div class="main-text">Nations</div>
       <div class="subtext">World Cup · Continental Cup</div>
     </div>
+
     <div class="category" onclick="location.href='legends.html'">
       <div class="emoji">⭐</div>
       <div class="main-text">Legends</div>
       <div class="subtext">Pele · Ronaldo R9 · Maradona</div>
     </div>
+
   </div>
 
   <!-- Specials heading -->
   <div class="specials-heading">Specials</div>
 
-  <!-- Specials categories (no emojis, gradients applied) -->
+  <!-- Specials categories -->
   <div class="specials">
+
     <div class="category mls" onclick="location.href='mls.html'">
       <div class="main-text">MLS</div>
       <div class="subtext">L. Messi in Inter Miami</div>
     </div>
+
     <div class="category rsl" onclick="location.href='rsl.html'">
       <div class="main-text">RSL</div>
       <div class="subtext">C. Ronaldo in Al Nassr</div>
     </div>
+
     <div class="category superlig" onclick="location.href='superlig.html'">
       <div class="main-text">Süper Lig</div>
       <div class="subtext">V. Osimhen in Galatasaray</div>
     </div>
+
   </div>
+
 </body>
 </html>
