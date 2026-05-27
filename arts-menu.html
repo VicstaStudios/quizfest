@@ -2,10 +2,16 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Arts Menu</title>
+
   <style>
     :root {
       --font-sans: 'Poppins', Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
     }
 
     body {
@@ -17,32 +23,34 @@
       grid-template-columns: 1fr;
       gap: 20px;
       color: #F5F7FA;
+      overflow-x: hidden;
     }
 
     .category {
       background-color: #1A1D24;
       border-radius: 16px;
-      padding: 16px;
+      padding: 18px;
       cursor: pointer;
       transition: transform 0.3s, box-shadow 0.3s;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
+      width: 100%;
     }
 
     .category:hover {
       transform: translateY(-4px);
-      box-shadow: 0 0 20px rgba(79,140,255,0.7); /* neon blue glow */
+      box-shadow: 0 0 20px rgba(79,140,255,0.7);
     }
 
     /* General Arts Quiz special styling */
     .general {
       background: linear-gradient(
         to bottom right,
-        purple 50%,   /* solid purple until halfway */
-        #e6ccff 100%  /* fade to light lavender at lower right */
+        purple 50%,
+        #e6ccff 100%
       );
-      width: calc(100% - 14px); /* full width minus padding */
+      width: 100%;
     }
 
     .emoji {
@@ -54,34 +62,62 @@
       font-size: 22px;
       font-weight: 700;
       margin-bottom: 6px;
+      line-height: 1.3;
     }
 
     .subtext {
       font-size: 14px;
       font-weight: 600;
-      color: rgba(154,164,178,0.7); /* softer, semi-transparent */
-      filter: blur(0.2px);          /* subtle blur effect */
+      color: rgba(154,164,178,0.7);
+      line-height: 1.5;
     }
-
 
     /* Grid for subject boxes */
     .subjects {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 15px;
+      width: 100%;
     }
 
+    /* =========================
+       MOBILE OPTIMIZATION
+    ========================= */
     @media (max-width: 600px) {
-      .subjects {
-        grid-template-columns: repeat(2, 1fr); /* two per row on mobile */
+
+      body {
+        padding: 15px;
+        gap: 15px;
       }
-      .main-text { font-size: 18px; }
-      .emoji { font-size: 24px; }
-      .subtext { font-size: 12px; }
+
+      .subjects {
+        grid-template-columns: 1fr;
+      }
+
+      .category {
+        padding: 16px;
+        border-radius: 14px;
+      }
+
+      .main-text {
+        font-size: 18px;
+      }
+
+      .emoji {
+        font-size: 24px;
+      }
+
+      .subtext {
+        font-size: 12px;
+        line-height: 1.4;
+      }
+
     }
   </style>
 </head>
+
 <body>
+
   <!-- General Arts Quiz -->
   <div class="category general" onclick="location.href='arts.html'">
     <div class="main-text">General Arts Quiz</div>
@@ -90,6 +126,7 @@
 
   <!-- Subject-specific categories -->
   <div class="subjects">
+
     <div class="category" onclick="location.href='government.html'">
       <div class="emoji">🏛️</div>
       <div class="main-text">Government</div>
@@ -107,7 +144,8 @@
       <div class="main-text">Social Studies</div>
       <div class="subtext">Culture · Society · History</div>
     </div>
+
   </div>
+
 </body>
 </html>
-
