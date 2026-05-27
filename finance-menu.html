@@ -2,10 +2,17 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Finance Menu</title>
+
   <style>
+
     :root {
       --font-sans: 'Poppins', Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
     }
 
     body {
@@ -17,32 +24,34 @@
       grid-template-columns: 1fr;
       gap: 20px;
       color: #F5F7FA;
+      overflow-x: hidden;
     }
 
     .category {
       background-color: #1A1D24;
       border-radius: 16px;
-      padding: 16px;
+      padding: 18px;
       cursor: pointer;
       transition: transform 0.3s, box-shadow 0.3s;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
+      width: 100%;
     }
 
     .category:hover {
       transform: translateY(-4px);
-      box-shadow: 0 0 20px rgba(79,140,255,0.7); /* neon blue glow */
+      box-shadow: 0 0 20px rgba(79,140,255,0.7);
     }
 
     /* General Finance Quiz special styling */
     .general {
       background: linear-gradient(
         to bottom right,
-        teal 50%,   /* solid teal until halfway */
-        #ccfff2 100% /* fade to light mint at lower right */
+        teal 50%,
+        #ccfff2 100%
       );
-      width: calc(100% - 14px); /* full width minus padding */
+      width: 100%;
     }
 
     .emoji {
@@ -54,13 +63,15 @@
       font-size: 22px;
       font-weight: 700;
       margin-bottom: 6px;
+      line-height: 1.3;
     }
 
     .subtext {
       font-size: 14px;
       font-weight: 600;
-      color: rgba(154,164,178,0.7); /* blur-like faded color */
+      color: rgba(154,164,178,0.7);
       filter: blur(0.2px);
+      line-height: 1.5;
     }
 
     /* Grid for subject boxes */
@@ -68,19 +79,48 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 15px;
+      width: 100%;
     }
 
+    /* =========================
+       MOBILE OPTIMIZATION
+    ========================= */
     @media (max-width: 600px) {
-      .subjects {
-        grid-template-columns: repeat(2, 1fr); /* two per row on mobile */
+
+      body {
+        padding: 15px;
+        gap: 15px;
       }
-      .main-text { font-size: 18px; }
-      .emoji { font-size: 24px; }
-      .subtext { font-size: 12px; }
+
+      .subjects {
+        grid-template-columns: 1fr;
+      }
+
+      .category {
+        padding: 16px;
+        border-radius: 14px;
+      }
+
+      .main-text {
+        font-size: 18px;
+      }
+
+      .emoji {
+        font-size: 24px;
+      }
+
+      .subtext {
+        font-size: 12px;
+        line-height: 1.4;
+      }
+
     }
+
   </style>
 </head>
+
 <body>
+
   <!-- General Finance Quiz -->
   <div class="category general" onclick="location.href='finance.html'">
     <div class="main-text">General Finance Quiz</div>
@@ -89,6 +129,7 @@
 
   <!-- Subject-specific categories -->
   <div class="subjects">
+
     <div class="category" onclick="location.href='commerce.html'">
       <div class="emoji">💼</div>
       <div class="main-text">Commerce</div>
@@ -112,7 +153,8 @@
       <div class="main-text">Accounting</div>
       <div class="subtext">Trial Balance · Balance Sheets · Ledger</div>
     </div>
+
   </div>
+
 </body>
 </html>
-
