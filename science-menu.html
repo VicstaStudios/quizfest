@@ -3,9 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>History Menu</title>
+  <title>Science Menu</title>
 
   <style>
+    :root {
+      --font-sans: 'Poppins', Arial, sans-serif;
+    }
 
     * {
       box-sizing: border-box;
@@ -13,133 +16,124 @@
 
     body {
       margin: 0;
-      padding: 20px;
+      padding: 15px;
       background-color: #0F1115;
-      font-family: 'Poppins', Arial, sans-serif;
+      font-family: var(--font-sans);
       color: #F5F7FA;
       overflow-x: hidden;
     }
 
+    /* General Science Quiz */
+    .general {
+      background: linear-gradient(
+        to bottom right,
+        #FF8C42 55%,   /* vibrant orange */
+        #FFD166 100%  /* golden gradient */
+      );
+
+      width: 100%;
+      margin-bottom: 20px;
+    }
+
+    .subjects {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      width: 100%;
+    }
+
     .category {
       background-color: #1A1D24;
-      border-radius: 16px;
-      padding: 18px;
+      border-radius: 14px;
+      padding: 16px;
       cursor: pointer;
       transition: transform 0.3s, box-shadow 0.3s;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
       width: 100%;
+      min-height: 150px;
     }
 
     .category:hover {
       transform: translateY(-4px);
-      box-shadow: 0 0 20px rgba(79,140,255,0.7);
-    }
-
-    .general {
-      background: linear-gradient(to bottom right, #8B0000 50%, #FFA07A 100%);
-      width: 100%;
-      margin-bottom: 20px;
+      box-shadow: 0 0 20px rgba(255, 180, 80, 0.6);
     }
 
     .emoji {
-      font-size: 28px;
+      font-size: 24px;
       margin-bottom: 6px;
     }
 
     .main-text {
-      font-size: 22px;
+      font-size: 18px;
       font-weight: 700;
       margin-bottom: 6px;
       line-height: 1.3;
     }
 
     .subtext {
-      font-size: 14px;
-      font-weight: 600;
+      font-size: 12px;
       color: rgba(230,240,255,0.9);
-      line-height: 1.5;
+      line-height: 1.4;
     }
 
-    .subjects {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 15px;
-      width: 100%;
+    /* Bigger screens */
+    @media (min-width: 700px) {
+      .subjects {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .main-text {
+        font-size: 20px;
+      }
+
+      .subtext {
+        font-size: 13px;
+      }
+
+      .emoji {
+        font-size: 26px;
+      }
     }
-
-    /* =========================
-       MOBILE OPTIMIZATION
-    ========================= */
-   @media (max-width: 600px) {
-
-  body {
-    padding: 15px;
-  }
-
-  .subjects,
-  .specials {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-  }
-
-  .category {
-    padding: 16px;
-    border-radius: 14px;
-  }
-
-  .main-text {
-    font-size: 18px;
-    line-height: 1.3;
-  }
-
-  .subtext {
-    font-size: 12px;
-    line-height: 1.4;
-  }
-
-  .emoji {
-    font-size: 24px;
-  }
-
-  .specials-heading {
-    font-size: 15px;
-    margin-top: 16px;
-  }
-
-}
-
   </style>
 </head>
 
 <body>
 
-  <!-- General History Quiz -->
-  <div class="category general" onclick="location.href='history.html'">
-    <div class="main-text">General History Quiz</div>
-    <div class="subtext">Ancient · Medieval · Modern</div>
+  <!-- General Science Quiz -->
+  <div class="category general" onclick="location.href='science.html'">
+    <div class="main-text">General Science Quiz</div>
+    <div class="subtext">
+      Physics · Chemistry · Biology · All science related
+    </div>
   </div>
 
   <!-- Subject-specific categories -->
   <div class="subjects">
 
-    <div class="category" onclick="location.href='ancient-history.html'">
-      <div class="emoji">🏺</div>
-      <div class="main-text">Ancient History</div>
-      <div class="subtext">Egypt · Greece · Rome</div>
+    <div class="category" onclick="location.href='physics.html'">
+      <div class="emoji">🧪</div>
+      <div class="main-text">Physics</div>
+      <div class="subtext">Mechanics · Energy · Waves</div>
     </div>
 
-    <div class="category" onclick="location.href='medieval-history.html'">
-      <div class="emoji">⚔️</div>
-      <div class="main-text">Medieval History</div>
-      <div class="subtext">Knights · Castles · Crusades</div>
+    <div class="category" onclick="location.href='chemistry.html'">
+      <div class="emoji">⚛️</div>
+      <div class="main-text">Chemistry</div>
+      <div class="subtext">Atoms · Reactions · Compounds</div>
     </div>
 
-    <div class="category" onclick="location.href='modern-history.html'">
+    <div class="category" onclick="location.href='biology.html'">
+      <div class="emoji">🧬</div>
+      <div class="main-text">Biology</div>
+      <div class="subtext">Cells · Genetics · Ecology</div>
+    </div>
+
+    <div class="category" onclick="location.href='geography.html'">
       <div class="emoji">🌍</div>
-      <div class="main-text">Modern History</div>
-      <div class="subtext">Revolutions · World Wars · Globalization</div>
+      <div class="main-text">Geography</div>
+      <div class="subtext">Earth · Climate · Regions</div>
     </div>
 
   </div>
