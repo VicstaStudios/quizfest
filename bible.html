@@ -32,11 +32,13 @@
       transition: 0.2s;
       font-size: 16px;
     }
-    .option:hover { background: #888; }
-    .feedback {
-      font-size: 20px;
-      margin-top: 10px;
-      font-weight: bold;
+    .option:hover {
+     background: #999;
+     transform: scale(1.02);
+    }
+
+     .option {
+     transition: all 0.2s ease;
     }
     .wrong { color: #ff3b3b; text-shadow: 0 0 12px #ff3b3b; }
     .right { color: #7CFC00; text-shadow: 0 0 12px #7CFC00; }
@@ -56,7 +58,60 @@
     .home-btn { background: silver; color: #2e2e2e; }
     .play-btn { background: #00e676; color: #2e2e2e; }
     .small-note { font-size: 14px; color: #ccc; margin-top: 6px; }
-  </style>
+    .option {
+    display: block;
+    margin: 10px auto;
+    padding: 12px;
+    background: #666;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 70%;
+    max-width: 600px;
+    transition: 0.2s;
+    font-size: 16px;
+    box-sizing: border-box;
+   }
+
+   .option:hover {
+   background: #888;
+   }
+
+  /* MOBILE RESPONSIVE FIX */
+  @media (max-width: 768px) {
+
+  body {
+    padding: 10px;
+  }
+
+  .question-box {
+    width: 95%;
+    padding: 15px;
+  }
+
+  .option {
+    width: 95%;
+    font-size: 15px;
+    padding: 14px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  h3 {
+    font-size: 18px;
+  }
+
+  .btn {
+    width: 90%;
+    max-width: 300px;
+    font-size: 16px;
+  }
+} </style>
 </head>
 <body>
   <h1>Bible Knowledge Quiz</h1>
@@ -107,7 +162,7 @@
       {q:"Which Old Testament leader's face shone after speaking with God on the mountain?", options:["Moses","Aaron","Joshua","Caleb"], answer:"Moses"},
       {q:"Which prophet's book includes the famous 'Suffering Servant' passages often linked to the Messiah?", options:["Isaiah","Jeremiah","Ezekiel","Daniel"], answer:"Isaiah"},
       {q:"Which prophet was commanded to prophesy against the nations and wrote about the 'valley of decision'?", options:["Joel","Amos","Obadiah","Micah"], answer:"Joel"},
-      {q:"Which Old Testament figure wrestled with an angel and had his name changed to Israel?", options:["Jacob","Esau","Joseph","Benjamin"], answer:"Jacob"}
+      {q:"Which Old Testament figure wrestled with an angel and had his name changed to Israel?", options:["Jacob","Esau","Joseph","Benjamin"], answer:"Jacob"},
       {q:"Which prophet rebuilt the altar of the Lord on Mount Carmel?", options:["Elijah","Elisha","Isaiah","Jeremiah"], answer:"Elijah"},
       {q:"Which king saw the handwriting on the wall?", options:["Belshazzar","Nebuchadnezzar","Darius","Cyrus"], answer:"Belshazzar"},
       {q:"Which prophet mourned over Nineveh after its repentance?", options:["Jonah","Nahum","Amos","Micah"], answer:"Jonah"},
@@ -159,7 +214,7 @@
       {q:"Which king’s dream featured a giant statue?", options:["Nebuchadnezzar","Belshazzar","Darius","Saul"], answer:"Nebuchadnezzar"},
       {q:"Who asked Jesus for living water?", options:["The Samaritan woman","Mary Magdalene","Martha","Salome"], answer:"The Samaritan woman"} 
     
-    ];
+];
 
     // 40 Technical / Confusing
     const confusingTech = [
@@ -202,9 +257,9 @@
       {q:"Which Old Testament prophet confronted David about his sin with Bathsheba?", options:["Nathan","Samuel","Gad","Elijah"], answer:"Nathan"},
       {q:"Which New Testament book contains the 'I am' statements of Jesus?", options:["John","Matthew","Mark","Luke"], answer:"John"},
       {q:"Which Old Testament figure interpreted Pharaoh's dreams and rose to power in Egypt?", options:["Joseph","Moses","Aaron","Daniel"], answer:"Joseph"},
-      {q:"Which New Testament letter contains the 'armor of God' metaphor in chapter 6?", options:["Ephesians","Romans","1 Thessalonians","Colossians"], answer:"Ephesians"}
+      {q:"Which New Testament letter contains the 'armor of God' metaphor in chapter 6?", options:["Ephesians","Romans","1 Thessalonians","Colossians"], answer:"Ephesians"},
       {q:"Which Gospel was written by a doctor?", options:["Luke","John","Mark","Matthew"], answer:"Luke"},
-      {q:"Which epistle was written to Philemon?", options:["Philemon","Romans","Hebrews","James"], answer:"Philemon"}
+      {q:"Which epistle was written to Philemon?", options:["Philemon","Romans","Hebrews","James"], answer:"Philemon"},
       {q:"Which disciple was a tax collector?", options:["Matthew","Peter","John","Thomas"], answer:"Matthew"},
       {q:"Which book comes after Romans?", options:["1 Corinthians","Galatians","Acts","Hebrews"], answer:"1 Corinthians"},
       {q:"Which prophet ministered after the exile?", options:["Haggai","Isaiah","Jeremiah","Amos"], answer:"Haggai"},
@@ -229,7 +284,7 @@
       {q:"Which New Testament book contains the fruit of the Spirit?", options:["Galatians","Romans","Hebrews","Acts"], answer:"Galatians"},
       {q:"Which prophet married Gomer?", options:["Hosea","Joel","Amos","Micah"], answer:"Hosea"}
     
-    ];
+];
 
     // 20 Popular / Simple
     const popularSimple = [
@@ -252,7 +307,7 @@
       {q:"Which apostle denied Jesus three times before the rooster crowed?", options:["Peter","John","James","Andrew"], answer:"Peter"},
       {q:"What is the shortest verse in the Bible often quoted as 'Jesus wept'?", options:["John 11:35","Luke 2:7","Mark 1:1","Matthew 5:3"], answer:"John 11:35"},
       {q:"Which river did John the Baptist baptize people in?", options:["Jordan","Nile","Euphrates","Tigris"], answer:"Jordan"},
-      {q:"Who wrote many letters to early churches and is called the Apostle to the Gentiles?", options:["Paul","Peter","John","James"], answer:"Paul"}
+      {q:"Who wrote many letters to early churches and is called the Apostle to the Gentiles?", options:["Paul","Peter","John","James"], answer:"Paul"},
       {q:"Who built the first temple in Jerusalem?", options:["Solomon","David","Saul","Hezekiah"], answer:"Solomon"},
       {q:"Who was thrown into a den of lions?", options:["Daniel","Joseph","David","Elijah"], answer:"Daniel"},
       {q:"Who parted the Red Sea?", options:["Moses","Joshua","Elijah","Aaron"], answer:"Moses"},
@@ -305,7 +360,7 @@
     // --- Pick 10 random questions (ensures variety each play) ---
     function getRandomQuestions() {
       const shuffled = shuffleArray(allQuestions);
-      return shuffled.slice(0, 10);
+     return shuffled.slice(0, QUESTIONS_PER_GAME);
     }
 
     // --- Quiz state ---
@@ -320,7 +375,8 @@
       if (currentIndex >= selectedQuestions.length) {
         // Quiz finished
         document.getElementById("quiz").innerHTML = "";
-        const scoreText = "Quiz Over! You scored " + (score * 10) + " / 100";
+        const finalScore = Math.round((score / QUESTIONS_PER_GAME) * 100);
+        const scoreText = "Quiz Over! You scored " + finalScore + " / 100";
         document.getElementById("score-box").innerHTML =
           scoreText +
           "<br><button class='btn home-btn' onclick=\"location.href='index.html'\">Home</button>" +
