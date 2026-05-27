@@ -2,26 +2,34 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Celebs Menu</title>
+
   <style>
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       padding: 20px;
       background-color: #0F1115;
       font-family: 'Poppins', Arial, sans-serif;
       color: #F5F7FA;
+      overflow-x: hidden;
     }
 
     .category {
       background-color: #1A1D24;
       border-radius: 16px;
-      padding: 16px;
+      padding: 18px;
       cursor: pointer;
       transition: transform 0.3s, box-shadow 0.3s;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      box-sizing: border-box;
+      width: 100%;
     }
 
     .category:hover {
@@ -36,79 +44,140 @@
       margin-bottom: 20px;
     }
 
-    .emoji { font-size: 28px; margin-bottom: 6px; }
-    .main-text { font-size: 22px; font-weight: 700; margin-bottom: 6px; }
-    .subtext { font-size: 14px; font-weight: 600; color: rgba(230,240,255,0.9); }
+    .emoji {
+      font-size: 28px;
+      margin-bottom: 6px;
+    }
 
-    .subjects, .specials {
+    .main-text {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      line-height: 1.3;
+    }
+
+    .subtext {
+      font-size: 14px;
+      font-weight: 600;
+      color: rgba(230,240,255,0.9);
+      line-height: 1.5;
+    }
+
+    .subjects,
+    .specials {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 15px;
+      width: 100%;
     }
 
     .specials-heading {
       font-size: 16px;
       font-weight: 700;
       color: rgba(230,240,255,0.85);
-      margin-top: 10px;
+      margin-top: 18px;
+      margin-bottom: 12px;
     }
 
     /* Specials gradients */
     .grammy {
       background: linear-gradient(to bottom right, #ff8c00 50%, #ffe4b5 100%);
     }
+
     .oscar {
       background: linear-gradient(to bottom right, #4682b4 50%, #b0e0e6 100%);
     }
 
+    /* =========================
+       MOBILE OPTIMIZATION
+    ========================= */
     @media (max-width: 600px) {
-      .subjects, .specials {
-        grid-template-columns: repeat(2, 1fr);
+
+      body {
+        padding: 15px;
       }
-      .main-text { font-size: 18px; }
-      .subtext { font-size: 12px; }
+
+      .subjects,
+      .specials {
+        grid-template-columns: 1fr;
+      }
+
+      .category {
+        padding: 16px;
+        border-radius: 14px;
+      }
+
+      .main-text {
+        font-size: 18px;
+      }
+
+      .subtext {
+        font-size: 12px;
+        line-height: 1.4;
+      }
+
+      .emoji {
+        font-size: 24px;
+      }
+
+      .specials-heading {
+        font-size: 15px;
+        margin-top: 16px;
+      }
+
     }
+
   </style>
 </head>
+
 <body>
+
   <!-- General Celebs Quiz -->
   <div class="category general" onclick="location.href='celebs.html'">
     <div class="main-text">General Celebs Quiz</div>
     <div class="subtext">Naija Vibes · Hollywood · Social Media · Specials</div>
   </div>
 
-  <!-- Subject-specific categories (with emojis) -->
+  <!-- Subject-specific categories -->
   <div class="subjects">
+
     <div class="category" onclick="location.href='naija-celebs.html'">
       <div class="emoji">🇳🇬</div>
       <div class="main-text">Naija Vibes</div>
       <div class="subtext">Music · Nollywood · Influencers</div>
     </div>
+
     <div class="category" onclick="location.href='hollywood-celebs.html'">
       <div class="emoji">🎬</div>
       <div class="main-text">Hollywood</div>
       <div class="subtext">Movies · Stars · Awards</div>
     </div>
+
     <div class="category" onclick="location.href='social-celebs.html'">
       <div class="emoji">📱</div>
       <div class="main-text">Social Media</div>
       <div class="subtext">TikTok · Instagram · YouTube</div>
     </div>
+
   </div>
 
   <!-- Specials heading -->
   <div class="specials-heading">Specials</div>
 
-  <!-- Specials categories (no emojis, gradients applied) -->
+  <!-- Specials categories -->
   <div class="specials">
+
     <div class="category grammy" onclick="location.href='grammy.html'">
       <div class="main-text">Grammy</div>
       <div class="subtext">Music Awards</div>
     </div>
+
     <div class="category oscar" onclick="location.href='oscar.html'">
       <div class="main-text">Oscar</div>
       <div class="subtext">Academy Awards</div>
     </div>
+
   </div>
+
 </body>
 </html>
